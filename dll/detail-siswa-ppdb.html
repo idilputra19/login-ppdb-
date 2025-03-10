@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Siswa PPDB - Kota Solok 2025</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1b99e5;
+            --primary-dark: #1680c2;
+            --primary-light: #6bc8ff;
+            --gradient-start: #1b99e5;
+            --gradient-end: #0056b3;
+            --white: #ffffff;
+            --dark: #333333;
+            --gray: #f5f5f5;
+            --gray-dark: #e0e0e0;
+            --gray-text: #777777;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --shadow-dark: 0 5px 15px rgba(0, 0, 0, 0.2);
+            
+            /* Status colors */
+            --success: #4CAF50;
+            --pending: #FF9800;
+            --error: #F44336;
+            --info: #2196F3;
+            
+            /* Pathway colors */
+            --zonasi: #4CAF50;
+            --afirmasi: #FF9800;
+            --prestasi: #E91E63;
+            --pindah: #673AB7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f9ff, #ecf4ff);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--white), #f8fbff);
+            box-shadow: var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--primary);
+        }
+        
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 10px;
+            line-height: 1.2;
+            box-shadow: 0 3px 8px rgba(27, 153, 229, 0.3);
+        }
+        
+        .brand-name {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Main Section */
+        .detail-section {
+            padding: 30px 0;
+            flex-grow: 1;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb-separator {
+            color: var(--gray-text);
+        }
+        
+        .detail-header {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .student-profile {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: rgba(255, 255, 255, 0.9);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .profile-info {
+            flex: 1;
+        }
+        
+        .student-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .student-nisn {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .status-badge.accepted {
+            background-color: rgba(76, 175, 80, 0.2);
+            color: #E8F5E9;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .status-badge.waiting {
+            background-color: rgba(255, 152, 0, 0.2);
+            color: #FFF8E1;
+            border: 1px solid rgba(255, 152, 0, 0.3);
+        }
+        
+        .status-badge.rejected {
+            background-color: rgba(244, 67, 54, 0.2);
+            color: #FFEBEE;
+            border: 1px solid rgba(244, 67, 54, 0.3);
+        }
+        
+        .admission-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .admission-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        
+        .admission-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        .admission-value {
+            font-weight: 600;
+        }
+        
+        .pathway-badge {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .pathway-zonasi {
+            background-color: rgba(76, 175, 80, 0.3);
+            color: #E8F5E9;
+        }
+        
+        .pathway-afirmasi {
+            background-color: rgba(255, 152, 0, 0.3);
+            color: #FFF8E1;
+        }
+        
+        .pathway-prestasi {
+            background-color: rgba(233, 30, 99, 0.3);
+            color: #FCE4EC;
+        }
+        
+        .pathway-pindah {
+            background-color: rgba(103, 58, 183, 0.3);
+            color: #EDE7F6;
+        }
+        
+        .page-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .main-column {
+            flex: 2;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .side-column {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .detail-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .card-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--gray-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .info-group {
+            margin-bottom: 20px;
+        }
+        
+        .info-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        .info-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+        
+        .info-row {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        
+        .info-label {
+            width: 150px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--gray-text);
+        }
+        
+        .info-value {
+            flex: 1;
+            font-size: 14px;
+        }
+        
+        .verification-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+        
+        .verification-row:last-child {
+            border-bottom: none;
+        }
+        
+        .verification-document {
+            font-size: 14px;
+        }
+        
+        .verification-status {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+        
+        .status-verified {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .status-pending {
+            background-color: rgba(255, 152, 0, 0.1);
+            color: var(--pending);
+            border: 1px solid rgba(255, 152, 0, 0.3);
+        }
+        
+        .status-rejected {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: var(--error);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin-left: 15px;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background-color: var(--gray-dark);
+        }
+        
+        .timeline-event {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-event:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-event::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -38px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--white);
+            border: 2px solid var(--gray-dark);
+            z-index: 1;
+        }
+        
+        .timeline-event.completed::before {
+            background-color: var(--success);
+            border-color: var(--success);
+        }
+        
+        .timeline-event.current::before {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(27, 153, 229, 0.2);
+        }
+        
+        .timeline-date {
+            font-size: 12px;
+            color: var(--gray-text);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .timeline-desc {
+            font-size: 14px;
+            color: var(--gray-text);
+        }
+        
+        /* Action Sidebar */
+        .action-card {
+            padding: 20px;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+        
+        .action-card:last-child {
+            border-bottom: none;
+        }
+        
+        .action-deadline {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            background-color: rgba(244, 67, 54, 0.1);
+            color: var(--error);
+        }
+        
+        .action-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .action-desc {
+            font-size: 14px;
+            color: var(--gray-text);
+            margin-bottom: 15px;
+        }
+        
+        .action-btn {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            box-shadow: 0 3px 8px rgba(27, 153, 229, 0.3);
+        }
+        
+        .btn-primary:hover {
+            box-shadow: 0 5px 15px rgba(27, 153, 229, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(27, 153, 229, 0.05);
+        }
+        
+        .document-link {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: var(--gray);
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+        
+        .document-link:hover {
+            background-color: var(--gray-dark);
+        }
+        
+        .document-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
+        .document-info {
+            flex: 1;
+        }
+        
+        .document-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .document-size {
+            font-size: 12px;
+            color: var(--gray-text);
+        }
+        
+        .qr-code {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .qr-image {
+            width: 180px;
+            height: 180px;
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .qr-text {
+            font-size: 12px;
+            color: var(--gray-text);
+            margin-top: 10px;
+        }
+        
+        /* Notification */
+        .notification {
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .notification-success {
+            background-color: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid var(--success);
+        }
+        
+        .notification-info {
+            background-color: rgba(33, 150, 243, 0.1);
+            border-left: 4px solid var(--info);
+        }
+        
+        .notification-warning {
+            background-color: rgba(255, 152, 0, 0.1);
+            border-left: 4px solid var(--pending);
+        }
+        
+        .notification-error {
+            background-color: rgba(244, 67, 54, 0.1);
+            border-left: 4px solid var(--error);
+        }
+        
+        .notification-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+        
+        .notification-success .notification-icon {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234CAF50'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'%3E%3C/path%3E%3C/svg%3E") center/cover no-repeat;
+        }
+        
+        .notification-info .notification-icon {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%232196F3'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'%3E%3C/path%3E%3C/svg%3E") center/cover no-repeat;
+        }
+        
+        .notification-warning .notification-icon {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23FF9800'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z'%3E%3C/path%3E%3C/svg%3E") center/cover no-repeat;
+        }
+        
+        .notification-error .notification-icon {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23F44336'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z'%3E%3C/path%3E%3C/svg%3E") center/cover no-repeat;
+        }
+        
+        .notification-content {
+            flex: 1;
+        }
+        
+        .notification-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .notification-message {
+            font-size: 14px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray-text);
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .detail-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .student-profile {
+                width: 100%;
+            }
+            
+            .admission-info {
+                width: 100%;
+            }
+            
+            .page-content {
+                flex-direction: column;
+            }
+            
+            .main-column,
+            .side-column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="brand">
+                    <div class="brand-logo">SPMB<br>2025</div>
+                    <div class="brand-name">PPDB Kota Solok</div>
+                </a>
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Beranda</a>
+                    <a href="#" class="nav-link">Zonasi</a>
+                    <a href="#" class="nav-link">Hasil</a>
+                    <a href="#" class="nav-link">Kontak</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="detail-section">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="#">Beranda</a>
+                <span class="breadcrumb-separator">></span>
+                <a href="#">Hasil PPDB</a>
+                <span class="breadcrumb-separator">></span>
+                <a href="#">SMPN 1 Kota Solok</a>
+                <span class="breadcrumb-separator">></span>
+                <span>Detail Siswa</span>
+            </div>
+            
+            <div class="notification notification-success">
+                <div class="notification-icon"></div>
+                <div class="notification-content">
+                    <div class="notification-title">Selamat! Anda diterima di SMPN 1 Kota Solok</div>
+                    <div class="notification-message">
+                        Silakan melakukan daftar ulang pada tanggal 27-30 April 2025 dengan membawa dokumen asli dan persyaratan yang telah ditentukan.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="detail-header">
+                <div class="student-profile">
+                    <div class="profile-image">A</div>
+                    <div class="profile-info">
+                        <h1 class="student-name">Ahmad Fadillah</h1>
+                        <div class="student-nisn">NISN: 0095463728</div>
+                        <div class="status-badge accepted">DITERIMA</div>
+                    </div>
+                </div>
+                
+                <div class="admission-info">
+                    <div class="admission-item">
+                        <div class="admission-label">Sekolah Tujuan</div>
+                        <div class="admission-value">SMPN 1 Kota Solok</div>
+                    </div>
+                    <div class="admission-item">
+                        <div class="admission-label">Jalur Pendaftaran</div>
+                        <div class="admission-value">
+                            <span class="pathway-badge pathway-zonasi">Zonasi (Domisili)</span>
+                        </div>
+                    </div>
+                    <div class="admission-item">
+                        <div class="admission-label">Asal Sekolah</div>
+                        <div class="admission-value">SD Negeri 01 Solok</div>
+                    </div>
+                    <div class="admission-item">
+                        <div class="admission-label">Peringkat</div>
+                        <div class="admission-value">12 dari 144</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page-content">
+                <div class="main-column">
+                    <div class="detail-card">
+                        <div class="card-header">
+                            <div class="card-title">Data Diri Siswa</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-group">
+                                <div class="info-title">Informasi Pribadi</div>
+                                <div class="info-row">
+                                    <div class="info-label">Nama Lengkap</div>
+                                    <div class="info-value">Ahmad Fadillah</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">NISN</div>
+                                    <div class="info-value">0095463728</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Tempat, Tgl Lahir</div>
+                                    <div class="info-value">Solok, 15 Juni 2012</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Jenis Kelamin</div>
+                                    <div class="info-value">Laki-laki</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Agama</div>
+                                    <div class="info-value">Islam</div>
+                                </div>
+                            </div>
+                            
+                            <div class="info-group">
+                                <div class="info-title">Informasi Kontak</div>
+                                <div class="info-row">
+                                    <div class="info-label">Alamat</div>
+                                    <div class="info-value">Jl. Syekh Ismail Khatib No. 45, RT 003/RW 006</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Kelurahan</div>
+                                    <div class="info-value">Nan Balimo</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Kecamatan</div>
+                                    <div class="info-value">Tanjung Harapan</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Kota/Kabupaten</div>
+                                    <div class="info-value">Kota Solok</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Provinsi</div>
+                                    <div class="info-value">Sumatera Barat</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Kode Pos</div>
+                                    <div class="info-value">27322</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">No. Telepon</div>
+                                    <div class="info-value">08123456789</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Email</div>
+                                    <div class="info-value">ahmadfa@example.com</div>
+                                </div>
+                            </div>
+                            
+                            <div class="info-group">
+                                <div class="info-title">Data Orang Tua/Wali</div>
+                                <div class="info-row">
+                                    <div class="info-label">Nama Ayah</div>
+                                    <div class="info-value">Budi Santoso</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Pekerjaan Ayah</div>
+                                    <div class="info-value">Wiraswasta</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">No. HP Ayah</div>
+                                    <div class="info-value">081234567890</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Nama Ibu</div>
+                                    <div class="info-value">Siti Aminah</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Pekerjaan Ibu</div>
+                                    <div class="info-value">Guru</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">No. HP Ibu</div>
+                                    <div class="info-value">085678901234</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <div class="card-header">
+                            <div class="card-title">Informasi Jalur Zonasi</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-group">
+                                <div class="info-title">Detail Zonasi</div>
+                                <div class="info-row">
+                                    <div class="info-label">Jarak ke Sekolah</div>
+                                    <div class="info-value">0.8 km</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Kelurahan</div>
+                                    <div class="info-value">Nan Balimo (Zona SMPN 1)</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Titik Koordinat</div>
+                                    <div class="info-value">-0.789123, 100.654321</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Status Verifikasi</div>
+                                    <div class="info-value">
+                                        <span class="verification-status status-verified">Terverifikasi</span>
+                                    </div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Verifikator</div>
+                                    <div class="info-value">Panitia PPDB SMPN 1 Kota Solok</div>
+                                </div>
+                                <div class="info-row">
+                                    <div class="info-label">Waktu Verifikasi</div>
+                                    <div class="info-value">5 April 2025, 10:30 WIB</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <div class="card-header">
+                            <div class="card-title">Status Dokumen</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="verification-row">
+                                <div class="verification-document">Kartu Keluarga (KK)</div>
+                                <div class="verification-status status-verified">Terverifikasi</div>
+                            </div>
+                            <div class="verification-row">
+                                <div class="verification-document">Akta Kelahiran</div>
+                                <div class="verification-status status-verified">Terverifikasi</div>
+                            </div>
+                            <div class="verification-row">
+                                <div class="verification-document">Ijazah SD/Surat Keterangan Lulus</div>
+                                <div class="verification-status status-verified">Terverifikasi</div>
+                            </div>
+                            <div class="verification-row">
+                                <div class="verification-document">Surat Keterangan Domisili</div>
+                                <div class="verification-status status-verified">Terverifikasi</div>
+                            </div>
+                            <div class="verification-row">
+                                <div class="verification-document">Bukti Tagihan Listrik/PBB</div>
+                                <div class="verification-status status-verified">Terverifikasi</div>
+                            </div>
+                            <div class="verification-row">
+                                <div class="verification-document">Pas Foto</div>
+                                <div class="verification-status status-verified">Terverifikasi</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <div class="card-header">
+                            <div class="card-title">Riwayat Proses PPDB</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="timeline">
+                                <div class="timeline-event completed">
+                                    <div class="timeline-date">1 Maret 2025, 14:23 WIB</div>
+                                    <div class="timeline-title">Pendaftaran Akun</div>
+                                    <div class="timeline-desc">Akun PPDB berhasil dibuat dan diverifikasi melalui email.</div>
+                                </div>
+                                
+                                <div class="timeline-event completed">
+                                    <div class="timeline-date">22 Maret 2025, 09:15 WIB</div>
+                                    <div class="timeline-title">Pengisian Formulir dan Upload Dokumen</div>
+                                    <div class="timeline-desc">Formulir pendaftaran telah diisi dan dokumen pendukung berhasil diunggah.</div>
+                                </div>
+                                
+                                <div class="timeline-event completed">
+                                    <div class="timeline-date">5 April 2025, 10:30 WIB</div>
+                                    <div class="timeline-title">Verifikasi Dokumen</div>
+                                    <div class="timeline-desc">Dokumen telah diverifikasi dan dinyatakan lengkap oleh panitia PPDB.</div>
+                                </div>
+                                
+                                <div class="timeline-event completed">
+                                    <div class="timeline-date">18 April 2025, 15:45 WIB</div>
+                                    <div class="timeline-title">Proses Seleksi</div>
+                                    <div class="timeline-desc">Proses seleksi telah dilakukan berdasarkan jarak tempat tinggal ke sekolah.</div>
+                                </div>
+                                
+                                <div class="timeline-event completed">
+                                    <div class="timeline-date">25 April 2025, 10:00 WIB</div>
+                                    <div class="timeline-title">Pengumuman Hasil</div>
+                                    <div class="timeline-desc">Dinyatakan diterima di SMPN 1 Kota Solok melalui jalur Zonasi.</div>
+                                </div>
+                                
+                                <div class="timeline-event current">
+                                    <div class="timeline-date">27-30 April 2025</div>
+                                    <div class="timeline-title">Daftar Ulang</div>
+                                    <div class="timeline-desc">Proses daftar ulang dengan membawa dokumen asli ke sekolah tujuan.</div>
+                                </div>
+                                
+                                <div class="timeline-event">
+                                    <div class="timeline-date">15 Juli 2025</div>
+                                    <div class="timeline-title">Masa Pengenalan Lingkungan Sekolah</div>
+                                    <div class="timeline-desc">Mengikuti kegiatan pengenalan lingkungan sekolah bagi siswa baru.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="side-column">
+                    <div class="detail-card">
+                        <div class="card-header">
+                            <div class="card-title">Aksi</div>
+                        </div>
+                        <div class="action-card">
+                            <div class="action-deadline">Batas waktu: 30 April 2025</div>
+                            <div class="action-title">Daftar Ulang</div>
+                            <div class="action-desc">Lakukan daftar ulang dengan membawa dokumen asli ke SMPN 1 Kota Solok pada tanggal 27-30 April 2025.</div>
+                            <button class="action-btn btn-primary">Cetak Bukti Penerimaan</button>
+                        </div>
+                        <div class="action-card">
+                            <div class="action-title">Dokumen Panduan</div>
+                            <div class="action-desc">Unduh dokumen-dokumen penting untuk persiapan daftar ulang.</div>
+                            
+                            <a href="#" class="document-link">
+                                <div class="document-icon">📄</div>
+                                <div class="document-info">
+                                    <div class="document-name">Panduan Daftar Ulang</div>
+                                    <div class="document-size">PDF, 1.2 MB</div>
+                                </div>
+                            </a>
+                            
+                            <a href="#" class="document-link">
+                                <div class="document-icon">📄</div>
+                                <div class="document-info">
+                                    <div class="document-name">Formulir Daftar Ulang</div>
+                                    <div class="document-size">PDF, 850 KB</div>
+                                </div>
+                            </a>
+                            
+                            <a href="#" class="document-link">
+                                <div class="document-icon">📄</div>
+                                <div class="document-info">
+                                    <div class="document-name">Daftar Perlengkapan Sekolah</div>
+                                    <div class="document-size">PDF, 650 KB</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <div class="card-header">
+                            <div class="card-title">Kontak Sekolah</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="info-row">
+                                <div class="info-label">Nama Sekolah</div>
+                                <div class="info-value">SMPN 1 Kota Solok</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">Alamat</div>
+                                <div class="info-value">Jl. Syekh Ismail Khatib, Kel. Nan Balimo, Kec. Tanjung Harapan, Kota Solok</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">Telepon</div>
+                                <div class="info-value">(0755) 20123</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">Email</div>
+                                <div class="info-value">smpn1solok@example.com</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">Website</div>
+                                <div class="info-value">www.smpn1solok.sch.id</div>
+                            </div>
+                            <div class="info-row">
+                                <div class="info-label">Jam Daftar Ulang</div>
+                                <div class="info-value">08.00 - 15.00 WIB</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <div class="card-header">
+                            <div class="card-title">QR Code Verifikasi</div>
+                        </div>
+                        <div class="qr-code">
+                            <img src="/api/placeholder/200/200" alt="QR Code" class="qr-image">
+                            <div class="qr-text">
+                                <strong>ID: PPDBSOL-0095463728</strong><br>
+                                Tunjukkan QR Code ini saat proses daftar ulang untuk verifikasi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dinas Pendidikan Kota Solok. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // For demo purposes - no functionality needed
+    </script>
+</body>
+</html>

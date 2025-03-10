@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Pertanyaan Umum PPDB Kota Solok 2025</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1b99e5;
+            --primary-dark: #1680c2;
+            --primary-light: #6bc8ff;
+            --gradient-start: #1b99e5;
+            --gradient-end: #0056b3;
+            --white: #ffffff;
+            --dark: #333333;
+            --gray: #f5f5f5;
+            --gray-dark: #e0e0e0;
+            --gray-text: #777777;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --shadow-dark: 0 5px 15px rgba(0, 0, 0, 0.2);
+            
+            /* Pathway colors */
+            --domisili: #4CAF50;
+            --afirmasi: #FF9800;
+            --prestasi: #E91E63;
+            --pindah: #673AB7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f9ff, #ecf4ff);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--white), #f8fbff);
+            box-shadow: var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--primary);
+        }
+        
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 10px;
+            line-height: 1.2;
+            box-shadow: 0 3px 8px rgba(27, 153, 229, 0.3);
+        }
+        
+        .brand-name {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Main Section */
+        .faq-section {
+            padding: 30px 0;
+            flex-grow: 1;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--gray-text);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .faq-container {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .faq-header {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            color: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-header h2 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .faq-content {
+            padding: 20px;
+        }
+        
+        /* Search & Filter */
+        .search-filter {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .search-filter-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .search-box {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 1px solid var(--gray-dark);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(27, 153, 229, 0.2);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-text);
+            font-size: 18px;
+        }
+        
+        .filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .filter-tag {
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            background-color: var(--gray);
+            color: var(--dark);
+        }
+        
+        .filter-tag:hover, .filter-tag.active {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+        
+        /* FAQ Accordion */
+        .faq-accordion {
+            margin-bottom: 30px;
+        }
+        
+        .faq-category {
+            margin-bottom: 25px;
+        }
+        
+        .category-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--gray-dark);
+        }
+        
+        .faq-item {
+            margin-bottom: 10px;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            padding: 15px 20px;
+            cursor: pointer;
+            position: relative;
+            font-weight: 500;
+            color: var(--dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 22px;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active {
+            background-color: #f8fbff;
+        }
+        
+        .faq-question.active::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            color: var(--gray-text);
+            font-size: 14px;
+            background-color: #f8fbff;
+        }
+        
+        .faq-question.active + .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 1000px;
+        }
+        
+        .highlight {
+            background-color: rgba(27, 153, 229, 0.1);
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+        
+        .faq-tag {
+            display: inline-block;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 30px;
+            margin-right: 5px;
+            font-weight: 500;
+        }
+        
+        .tag-general {
+            background-color: #E3F2FD;
+            color: #1976D2;
+        }
+        
+        .tag-zonasi {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--domisili);
+        }
+        
+        .tag-afirmasi {
+            background-color: rgba(255, 152, 0, 0.1);
+            color: var(--afirmasi);
+        }
+        
+        .tag-prestasi {
+            background-color: rgba(233, 30, 99, 0.1);
+            color: var(--prestasi);
+        }
+        
+        .tag-pindah {
+            background-color: rgba(103, 58, 183, 0.1);
+            color: var(--pindah);
+        }
+        
+        .tag-technical {
+            background-color: #E8EAF6;
+            color: #3F51B5;
+        }
+        
+        .tag-dokumen {
+            background-color: #FFF8E1;
+            color: #FFA000;
+        }
+        
+        .tag-seleksi {
+            background-color: #F3E5F5;
+            color: #9C27B0;
+        }
+        
+        .tag-daftarulang {
+            background-color: #E0F2F1;
+            color: #00897B;
+        }
+        
+        /* Contact & Support */
+        .support-section {
+            background-color: #f8fbff;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .support-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+        
+        .support-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .support-option {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .support-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 3px 8px rgba(27, 153, 229, 0.3);
+        }
+        
+        .support-name {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .support-desc {
+            font-size: 13px;
+            color: var(--gray-text);
+            margin-bottom: 15px;
+        }
+        
+        .support-contact {
+            background-color: #f0f7ff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary);
+            display: block;
+            width: 100%;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray-text);
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .support-options {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="brand">
+                    <div class="brand-logo">SPMB<br>2025</div>
+                    <div class="brand-name">PPDB Kota Solok</div>
+                </a>
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Beranda</a>
+                    <a href="#" class="nav-link">Zonasi</a>
+                    <a href="#" class="nav-link">Jadwal</a>
+                    <a href="#" class="nav-link">Kontak</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="faq-section">
+        <div class="container">
+            <h1 class="section-title">Pertanyaan Umum (FAQ)</h1>
+            <p class="section-subtitle">Pertanyaan dan jawaban seputar PPDB Kota Solok tahun ajaran 2025/2026</p>
+            
+            <div class="faq-container">
+                <div class="faq-header">
+                    <h2>Frequently Asked Questions (FAQ)</h2>
+                </div>
+                
+                <div class="faq-content">
+                    <div class="search-filter">
+                        <h3 class="search-filter-title">Cari Pertanyaan</h3>
+                        <div class="search-box">
+                            <input type="text" class="search-input" id="searchFaq" placeholder="Masukkan kata kunci...">
+                            <div class="search-icon">🔍</div>
+                        </div>
+                        
+                        <h3 class="search-filter-title">Filter Berdasarkan Kategori</h3>
+                        <div class="filter-tags">
+                            <div class="filter-tag active" data-filter="all">Semua</div>
+                            <div class="filter-tag" data-filter="umum">Umum</div>
+                            <div class="filter-tag" data-filter="zonasi">Zonasi</div>
+                            <div class="filter-tag" data-filter="afirmasi">Afirmasi</div>
+                            <div class="filter-tag" data-filter="prestasi">Prestasi</div>
+                            <div class="filter-tag" data-filter="pindah">Pindah Tugas</div>
+                            <div class="filter-tag" data-filter="teknis">Teknis</div>
+                            <div class="filter-tag" data-filter="dokumen">Dokumen</div>
+                            <div class="filter-tag" data-filter="seleksi">Seleksi</div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-accordion">
+                        <!-- Informasi Umum -->
+                        <div class="faq-category" data-category="umum">
+                            <h3 class="category-title">Informasi Umum</h3>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-general">Umum</span> Apa itu PPDB Online?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>PPDB (Penerimaan Peserta Didik Baru) Online adalah sistem pendaftaran sekolah secara daring yang memungkinkan calon siswa mendaftar tanpa harus datang langsung ke sekolah. Sistem ini digunakan untuk mempermudah proses pendaftaran, seleksi, dan pengumuman hasil dengan lebih efisien dan transparan.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-general">Umum</span> Kapan pendaftaran PPDB Kota Solok tahun 2025 dimulai?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Pendaftaran PPDB Kota Solok tahun ajaran 2025/2026 dimulai pada <span class="highlight">1 Maret 2025</span> untuk pembuatan akun, dilanjutkan dengan pengisian data dan upload dokumen pada <span class="highlight">20-31 Maret 2025</span>. Proses seleksi akan dilaksanakan pada <span class="highlight">15-20 April 2025</span>, dan pengumuman hasil pada <span class="highlight">25 April 2025</span>.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-general">Umum</span> Bagaimana cara mendaftar PPDB Online?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Untuk mendaftar PPDB Online, Anda perlu:</p>
+                                    <ol>
+                                        <li>Kunjungi website PPDB Kota Solok di <span class="highlight">ppdb.solok.go.id</span></li>
+                                        <li>Buat akun dengan mengklik "Daftar Akun Baru"</li>
+                                        <li>Isi formulir pendaftaran akun dan verifikasi email</li>
+                                        <li>Login ke akun yang sudah dibuat</li>
+                                        <li>Pilih jalur pendaftaran sesuai kriteria</li>
+                                        <li>Isi formulir data diri dan pilih sekolah</li>
+                                        <li>Upload dokumen yang dibutuhkan</li>
+                                        <li>Finalisasi pendaftaran dan cetak bukti pendaftaran</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-general">Umum</span> Apa saja jalur pendaftaran yang tersedia di PPDB Kota Solok?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>PPDB Kota Solok menyediakan 4 jalur pendaftaran:</p>
+                                    <ul>
+                                        <li><strong>Jalur Domisili (Zonasi)</strong> - Berdasarkan jarak tempat tinggal ke sekolah (60% dari total kuota)</li>
+                                        <li><strong>Jalur Afirmasi</strong> - Untuk siswa dari keluarga tidak mampu (15% dari total kuota)</li>
+                                        <li><strong>Jalur Prestasi</strong> - Untuk siswa berprestasi akademik dan non-akademik (15% dari total kuota)</li>
+                                        <li><strong>Jalur Pindah Tugas</strong> - Untuk anak dari orang tua yang mengalami perpindahan tugas (10% dari total kuota)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-general">Umum</span> Apakah saya bisa mendaftar ke lebih dari satu sekolah?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Untuk jalur Domisili (Zonasi), Anda hanya dapat mendaftar ke sekolah yang sesuai dengan zona tempat tinggal Anda. Sedangkan untuk jalur Afirmasi, Prestasi, dan Pindah Tugas, Anda dapat memilih maksimal 2 sekolah pilihan sesuai urutan prioritas. Namun, Anda hanya bisa mendaftar melalui satu jalur pendaftaran saja.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Jalur Zonasi / Domisili -->
+                        <div class="faq-category" data-category="zonasi">
+                            <h3 class="category-title">Jalur Zonasi (Domisili)</h3>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-zonasi">Zonasi</span> Bagaimana cara mengetahui zona sekolah saya?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Anda dapat mengetahui zona sekolah berdasarkan alamat tempat tinggal dengan beberapa cara:</p>
+                                    <ul>
+                                        <li>Mengakses halaman Zonasi di website PPDB Kota Solok dan memasukkan alamat Anda di kolom pencarian</li>
+                                        <li>Melihat peta zonasi yang tersedia di website PPDB</li>
+                                        <li>Menghubungi Dinas Pendidikan Kota Solok untuk konfirmasi zona sekolah</li>
+                                    </ul>
+                                    <p>Zona ditentukan berdasarkan kelurahan dan jarak tempat tinggal ke sekolah.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-zonasi">Zonasi</span> Bagaimana jika tempat tinggal saya berada di perbatasan zona?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Jika tempat tinggal Anda berada di perbatasan zona, sistem akan menggunakan data koordinat GPS dan jarak terdekat ke sekolah sebagai acuan. Pastikan alamat pada Kartu Keluarga sudah benar dan terbaru. Jika masih ragu, Anda disarankan untuk berkonsultasi dengan Dinas Pendidikan Kota Solok sebelum memulai pendaftaran.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-zonasi">Zonasi</span> Apakah alamat pada Kartu Keluarga harus sesuai dengan tempat tinggal saat ini?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Ya, alamat pada Kartu Keluarga harus sesuai dengan tempat tinggal saat ini. Jika alamat pada KK belum diperbarui, Anda perlu melampirkan Surat Keterangan Domisili dari kelurahan setempat yang diterbitkan maksimal 6 bulan sebelum pendaftaran PPDB. Perlu diingat bahwa verifikator akan melakukan pengecekan kesesuaian alamat, dan ketidaksesuaian dapat mengakibatkan pembatalan pendaftaran.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-zonasi">Zonasi</span> Apa yang dimaksud dengan jarak tempat tinggal ke sekolah?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Jarak tempat tinggal ke sekolah adalah jarak tempuh terdekat dari titik koordinat alamat rumah calon siswa menuju ke titik koordinat sekolah, yang diukur menggunakan sistem pemetaan digital. Jarak ini menjadi faktor penentu dalam seleksi jalur zonasi, di mana siswa dengan jarak tempuh lebih dekat akan mendapat prioritas lebih tinggi.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-zonasi">Zonasi</span> Bagaimana jika KK saya masih alamat lama tapi saya sudah pindah?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Jika KK Anda masih menggunakan alamat lama sementara Anda sudah pindah tempat tinggal, Anda perlu:</p>
+                                    <ol>
+                                        <li>Mengurus Surat Keterangan Domisili dari kelurahan tempat tinggal baru</li>
+                                        <li>Melampirkan bukti tagihan listrik/air/PBB sebagai verifikasi alamat baru</li>
+                                        <li>Melampirkan surat pernyataan bermeterai yang menyatakan bahwa Anda benar-benar tinggal di alamat tersebut</li>
+                                    </ol>
+                                    <p>Dokumen-dokumen tersebut diperlukan sebagai pengganti KK yang belum diperbarui. Namun, Anda tetap disarankan untuk segera memperbarui alamat pada KK untuk menghindari masalah di kemudian hari.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Jalur Afirmasi -->
+                        <div class="faq-category" data-category="afirmasi">
+                            <h3 class="category-title">Jalur Afirmasi</h3>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-afirmasi">Afirmasi</span> Siapa saja yang berhak mendaftar melalui jalur afirmasi?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Jalur afirmasi diperuntukkan bagi calon peserta didik dari keluarga ekonomi tidak mampu yang dibuktikan dengan:</p>
+                                    <ul>
+                                        <li>Kartu Indonesia Pintar (KIP) atau Kartu Perlindungan Sosial (KPS) yang masih berlaku, atau</li>
+                                        <li>Kartu Program Keluarga Harapan (PKH) yang masih berlaku, atau</li>
+                                        <li>Surat Keterangan Tidak Mampu (SKTM) dari kelurahan yang dikeluarkan maksimal 3 bulan sebelum pendaftaran</li>
+                                    </ul>
+                                    <p>Dokumen-dokumen tersebut wajib dilampirkan saat pendaftaran untuk membuktikan kelayakan mengikuti jalur afirmasi.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-afirmasi">Afirmasi</span> Bagaimana cara mendapatkan SKTM jika saya tidak memiliki KIP atau PKH?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Untuk mendapatkan Surat Keterangan Tidak Mampu (SKTM), Anda perlu mengikuti langkah-langkah berikut:</p>
+                                    <ol>
+                                        <li>Datang ke kantor kelurahan tempat Anda tinggal</li>
+                                        <li>Bawa dokumen identitas (KTP, KK) dan dokumen pendukung lainnya</li>
+                                        <li>Isi formulir permohonan SKTM yang disediakan</li>
+                                        <li>Lampirkan bukti pendukung kondisi ekonomi (slip gaji, keterangan penghasilan, dll)</li>
+                                        <li>Tunggu proses verifikasi dari pihak kelurahan</li>
+                                    </ol>
+                                    <p>SKTM yang dikeluarkan harus memiliki tanggal penerbitan maksimal 3 bulan sebelum tanggal pendaftaran PPDB.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-afirmasi">Afirmasi</span> Apakah ada batasan jumlah pendaftar jalur afirmasi?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Ya, jumlah kuota untuk jalur afirmasi ditetapkan sebesar 15% dari total daya tampung setiap sekolah. Jika pendaftar melebihi kuota yang tersedia, maka seleksi akan dilakukan berdasarkan:</p>
+                                    <ol>
+                                        <li>Prioritas jenis bantuan sosial yang diterima (KIP/PKH lebih diprioritaskan daripada SKTM)</li>
+                                        <li>Jarak tempat tinggal ke sekolah</li>
+                                        <li>Waktu pendaftaran (yang lebih awal didahulukan)</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-afirmasi">Afirmasi</span> Apakah ada verifikasi kebenaran SKTM oleh panitia PPDB?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Ya, panitia PPDB akan melakukan verifikasi kebenaran SKTM dan dokumen penunjang lainnya. Verifikasi ini bisa meliputi:</p>
+                                    <ul>
+                                        <li>Pengecekan keaslian dokumen</li>
+                                        <li>Konfirmasi ke pihak kelurahan/desa yang mengeluarkan SKTM</li>
+                                        <li>Kunjungan rumah (home visit) untuk kasus tertentu</li>
+                                    </ul>
+                                    <p>Jika ditemukan pemalsuan dokumen atau ketidaksesuaian informasi, pendaftaran dapat dibatalkan dan calon siswa dapat dikenakan sanksi sesuai peraturan yang berlaku.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-afirmasi">Afirmasi</span> Apa yang terjadi jika kuota jalur afirmasi tidak terpenuhi?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Jika kuota jalur afirmasi tidak terpenuhi, maka sisa kuota akan dialihkan ke jalur domisili (zonasi). Hal ini dilakukan untuk memastikan bahwa sekolah dapat memenuhi daya tampung yang telah ditentukan.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Jalur Prestasi -->
+                        <div class="faq-category" data-category="prestasi">
+                            <h3 class="category-title">Jalur Prestasi</h3>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-prestasi">Prestasi</span> Apa saja prestasi yang diakui untuk jalur prestasi?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Prestasi yang diakui untuk jalur prestasi meliputi:</p>
+                                    <ol>
+                                        <li><strong>Prestasi Akademik:</strong>
+                                            <ul>
+                                                <li>Nilai rapor 5 semester terakhir dengan peringkat 10 besar di sekolah</li>
+                                                <li>Juara lomba akademik (Olimpiade Matematika, Sains, Bahasa, dll)</li>
+                                                <li>Kompetisi karya ilmiah</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Prestasi Non-Akademik:</strong>
+                                            <ul>
+                                                <li>Prestasi olahraga (juara kompetisi olahraga minimal tingkat kota/kabupaten)</li>
+                                                <li>Prestasi seni dan budaya (juara kompetisi seni/budaya minimal tingkat kota/kabupaten)</li>
+                                                <li>Penghargaan dalam bidang keagamaan, sosial, atau lingkungan</li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                    <p>Prestasi yang diperoleh harus dalam kurun waktu kelas 4 hingga kelas 6 SD/MI.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-prestasi">Prestasi</span> Bagaimana cara penilaian prestasi dalam seleksi PPDB?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Penilaian prestasi dalam seleksi PPDB dilakukan dengan sistem poin berdasarkan:</p>
+                                    <ol>
+                                        <li><strong>Tingkat Prestasi:</strong>
+                                            <ul>
+                                                <li>Internasional: 100 poin</li>
+                                                <li>Nasional: 75 poin</li>
+                                                <li>Provinsi: 50 poin</li>
+                                                <li>Kota/Kabupaten: 25 poin</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Peringkat/Juara:</strong>
+                                            <ul>
+                                                <li>Juara 1: 100% dari poin tingkat</li>
+                                                <li>Juara 2: 90% dari poin tingkat</li>
+                                                <li>Juara 3: 80% dari poin tingkat</li>
+                                                <li>Harapan/Finalis: 60% dari poin tingkat</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Nilai Rapor:</strong> Dihitung berdasarkan rata-rata nilai dan peringkat di sekolah</li>
+                                    </ol>
+                                    <p>Total poin dari semua prestasi akan dijumlahkan, dan calon siswa dengan poin tertinggi akan mendapatkan prioritas dalam seleksi jalur prestasi.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-prestasi">Prestasi</span> Apakah piagam prestasi perlu dilegalisir?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Ya, semua piagam atau sertifikat prestasi harus dilegalisir oleh pihak yang mengeluarkan atau kepala sekolah asal. Dokumen yang tidak dilegalisir tidak akan dianggap sah dalam proses seleksi. Selain itu, Anda juga perlu melampirkan surat keterangan dari kepala sekolah yang menegaskan bahwa prestasi tersebut adalah benar milik siswa yang bersangkutan.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-prestasi">Prestasi</span> Berapa banyak sertifikat prestasi yang boleh dilampirkan?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Anda dapat melampirkan maksimal 5 sertifikat/piagam prestasi terbaik. Pastikan untuk memilih prestasi dengan tingkat tertinggi dan peringkat terbaik untuk memaksimalkan poin Anda. Jika Anda memiliki lebih dari 5 prestasi, prioritaskan prestasi yang memiliki bobot nilai lebih tinggi sesuai dengan sistem penilaian yang berlaku.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-prestasi">Prestasi</span> Apakah prestasi tim/kelompok dihitung dalam jalur prestasi?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Ya, prestasi tim/kelompok dapat dihitung dalam jalur prestasi, tetapi dengan nilai yang berbeda:</p>
+                                    <ul>
+                                        <li>Prestasi individu: 100% dari poin yang ditentukan</li>
+                                        <li>Prestasi tim (2-5 orang): 90% dari poin yang ditentukan</li>
+                                        <li>Prestasi kelompok (>5 orang): 80% dari poin yang ditentukan</li>
+                                    </ul>
+                                    <p>Untuk prestasi tim/kelompok, Anda harus melampirkan surat keterangan dari penyelenggara atau sekolah yang menegaskan bahwa Anda memang merupakan bagian dari tim/kelompok tersebut dan berkontribusi aktif.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Jalur Pindah Tugas -->
+                        <div class="faq-category" data-category="pindah">
+                            <h3 class="category-title">Jalur Pindah Tugas</h3>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-pindah">Pindah Tugas</span> Siapa yang berhak mendaftar melalui jalur pindah tugas?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Jalur pindah tugas diperuntukkan bagi calon peserta didik yang orangtuanya mengalami perpindahan tugas dari luar daerah ke Kota Solok. Kategori yang berhak:</p>
+                                    <ul>
+                                        <li>Anak dari anggota TNI/POLRI yang dipindahtugaskan</li>
+                                        <li>Anak dari Aparatur Sipil Negara (ASN) yang dimutasi</li>
+                                        <li>Anak dari pegawai BUMN/BUMD yang dipindahkan</li>
+                                    </ul>
+                                    <p>Perpindahan tugas harus terjadi maksimal 1 tahun sebelum tanggal pendaftaran PPDB.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-pindah">Pindah Tugas</span> Dokumen apa saja yang diperlukan untuk jalur pindah tugas?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Dokumen yang diperlukan untuk jalur pindah tugas meliputi:</p>
+                                    <ol>
+                                        <li>Surat Keputusan (SK) penugasan/mutasi dari instansi asal ke instansi tujuan yang dilegalisir</li>
+                                        <li>Surat keterangan dari instansi tempat orang tua/wali bekerja yang menyatakan bahwa yang bersangkutan telah bertugas di wilayah Kota Solok</li>
+                                        <li>Kartu Keluarga (KK) atau Surat Keterangan Domisili terbaru</li>
+                                        <li>Surat penugasan atau surat pindah tugas orang tua/wali dari instansi/lembaga</li>
+                                        <li>Dokumen umum lainnya (akta kelahiran, ijazah/SKL, pas foto)</li>
+                                    </ol>
+                                    <p>Semua dokumen harus asli atau fotokopi yang dilegalisir dan masih berlaku.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-pindah">Pindah Tugas</span> Apakah pegawai swasta bisa mendaftar melalui jalur pindah tugas?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Tidak, jalur pindah tugas hanya diperuntukkan bagi anak dari TNI/POLRI, ASN, dan pegawai BUMN/BUMD yang mengalami perpindahan tugas. Pegawai perusahaan swasta tidak termasuk dalam kategori yang dapat mendaftar melalui jalur ini. Jika Anda adalah pegawai swasta yang pindah tugas ke Kota Solok, anak Anda dapat mendaftar melalui jalur zonasi, afirmasi, atau prestasi sesuai dengan kriteria yang dipenuhi.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-pindah">Pindah Tugas</span> Bagaimana jika perpindahan tugas orang tua terjadi lebih dari 1 tahun yang lalu?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Jika perpindahan tugas orang tua terjadi lebih dari 1 tahun sebelum tanggal pendaftaran PPDB, maka Anda tidak dapat mendaftar melalui jalur pindah tugas. Dalam kasus ini, Anda harus mendaftar melalui jalur lain seperti zonasi, afirmasi, atau prestasi sesuai dengan kriteria yang dipenuhi.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-pindah">Pindah Tugas</span> Apa batas waktu terakhir perpindahan tugas yang diakui untuk PPDB 2025?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Untuk PPDB tahun ajaran 2025/2026, perpindahan tugas yang diakui adalah yang terjadi paling cepat 1 Maret 2024 (1 tahun sebelum pembukaan pendaftaran PPDB). Perpindahan tugas yang terjadi setelah tanggal 1 Maret 2024 hingga saat pendaftaran masih diakui, sedangkan yang terjadi sebelum tanggal tersebut tidak diakui untuk jalur pindah tugas.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Teknis Pendaftaran -->
+                        <div class="faq-category" data-category="teknis">
+                            <h3 class="category-title">Teknis Pendaftaran</h3>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-technical">Teknis</span> Bagaimana cara membuat akun PPDB Online?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Untuk membuat akun PPDB Online, ikuti langkah-langkah berikut:</p>
+                                    <ol>
+                                        <li>Kunjungi situs <span class="highlight">ppdb.solok.go.id</span></li>
+                                        <li>Klik tombol "Daftar Akun Baru"</li>
+                                        <li>Isi formulir dengan data diri calon siswa dan orang tua/wali</li>
+                                        <li>Masukkan NIK (Nomor Induk Kependudukan) yang valid</li>
+                                        <li>Masukkan email aktif yang dapat diakses</li>
+                                        <li>Buat kata sandi yang kuat (minimal 8 karakter dengan kombinasi huruf, angka, dan simbol)</li>
+                                        <li>Centang persetujuan syarat dan ketentuan</li>
+                                        <li>Klik "Daftar"</li>
+                                        <li>Cek email untuk verifikasi akun dan aktivasi</li>
+                                    </ol>
+                                    <p>Pastikan untuk menyimpan informasi login dengan aman dan tidak membagikannya kepada orang lain.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-technical">Teknis</span> Apa yang harus dilakukan jika lupa kata sandi?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Jika Anda lupa kata sandi akun PPDB, ikuti langkah-langkah berikut:</p>
+                                    <ol>
+                                        <li>Kunjungi halaman login PPDB</li>
+                                        <li>Klik tombol "Lupa Kata Sandi"</li>
+                                        <li>Masukkan email yang digunakan saat pendaftaran</li>
+                                        <li>Cek email untuk tautan reset kata sandi</li>
+                                        <li>Klik tautan dan buat kata sandi baru</li>
+                                        <li>Login dengan kata sandi baru</li>
+                                    </ol>
+                                    <p>Jika Anda juga lupa email yang digunakan, atau tidak dapat mengakses email tersebut, silakan hubungi helpdesk PPDB Kota Solok melalui nomor (0755) 20123 atau datang langsung ke Dinas Pendidikan Kota Solok dengan membawa identitas diri dan bukti pendaftaran (jika ada).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-technical">Teknis</span> Bagaimana cara upload dokumen yang benar?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Untuk upload dokumen yang benar, ikuti panduan berikut:</p>
+                                    <ol>
+                                        <li><strong>Format file:</strong> PDF atau JPG/JPEG (kecuali pas foto harus JPG/JPEG)</li>
+                                        <li><strong>Ukuran file:</strong> Maksimal 1MB per dokumen (pas foto maksimal 500KB)</li>
+                                        <li><strong>Resolusi:</strong> Minimal 300 dpi agar terbaca dengan jelas</li>
+                                        <li><strong>Penamaan file:</strong> Gunakan format "nama_dokumen_nama_siswa" (contoh: kk_budi_santoso.pdf)</li>
+                                        <li><strong>Scan dokumen:</strong> Pastikan dokumen discan dengan baik, tidak terpotong, dan terbaca jelas</li>
+                                        <li><strong>Preview:</strong> Selalu cek preview dokumen setelah upload untuk memastikan kualitasnya baik</li>
+                                    </ol>
+                                    <p>Dokumen yang tidak sesuai ketentuan dapat menyebabkan proses verifikasi tertunda atau ditolak.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-technical">Teknis</span> Apa yang harus dilakukan jika mengalami kendala teknis saat pendaftaran?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Jika Anda mengalami kendala teknis saat pendaftaran, berikut langkah-langkah yang dapat dilakukan:</p>
+                                    <ol>
+                                        <li>Refresh halaman atau coba login kembali</li>
+                                        <li>Pastikan koneksi internet stabil dan coba gunakan browser berbeda</li>
+                                        <li>Lihat panduan teknis di menu Bantuan pada website PPDB</li>
+                                        <li>Dokumentasikan error dengan screenshot untuk pelaporan</li>
+                                        <li>Hubungi tim dukungan teknis PPDB melalui:
+                                            <ul>
+                                                <li>Hotline: (0755) 20123</li>
+                                                <li>Email: ppdb@solok.go.id</li>
+                                                <li>Whatsapp: 081234567890</li>
+                                            </ul>
+                                        </li>
+                                        <li>Kunjungi Posko Bantuan PPDB di Dinas Pendidikan Kota Solok</li>
+                                    </ol>
+                                    <p>Tim dukungan teknis akan siap membantu selama jam operasional (08.00-16.00 WIB) pada hari kerja.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-technical">Teknis</span> Bisakah mengubah data setelah finalisasi pendaftaran?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Tidak, setelah Anda mengklik tombol "Finalisasi Pendaftaran", data dan dokumen yang telah dikirimkan tidak dapat diubah secara mandiri. Oleh karena itu, sangat penting untuk memeriksa kembali seluruh data dan dokumen sebelum finalisasi.</p>
+                                    <p>Jika terdapat kesalahan data yang kritis dan perlu dikoreksi setelah finalisasi, Anda harus:</p>
+                                    <ol>
+                                        <li>Menghubungi panitia PPDB melalui telepon (0755) 20123</li>
+                                        <li>Mengirim permintaan koreksi secara tertulis ke email ppdb@solok.go.id dengan melampirkan bukti pendukung</li>
+                                        <li>Atau datang langsung ke Posko Bantuan PPDB di Dinas Pendidikan Kota Solok</li>
+                                    </ol>
+                                    <p>Perubahan data setelah finalisasi bersifat kasuistik dan tidak dijamin dapat dipenuhi, tergantung pada kebijakan panitia PPDB dan tahapan proses seleksi yang sedang berlangsung.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Dokumen Pendaftaran -->
+                        <div class="faq-category" data-category="dokumen">
+                            <h3 class="category-title">Dokumen Pendaftaran</h3>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-dokumen">Dokumen</span> Apa saja dokumen wajib untuk pendaftaran PPDB?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Dokumen wajib yang harus disiapkan untuk pendaftaran PPDB (untuk semua jalur) meliputi:</p>
+                                    <ol>
+                                        <li>Kartu Keluarga (KK) atau Surat Keterangan Domisili</li>
+                                        <li>Akta Kelahiran</li>
+                                        <li>Ijazah/SKHUN/Surat Keterangan Lulus SD/MI</li>
+                                        <li>Pas foto berwarna terbaru ukuran 3x4 (latar belakang biru)</li>
+                                        <li>Dokumen tambahan sesuai jalur pendaftaran yang dipilih</li>
+                                    </ol>
+                                    <p>Semua dokumen harus dalam format PDF/JPG dengan ukuran maksimal 1MB per file, kecuali pas foto yang harus dalam format JPG dengan ukuran maksimal 500KB.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-dokumen">Dokumen</span> Bagaimana jika ijazah SD belum keluar saat pendaftaran?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Jika ijazah SD/MI belum keluar saat pendaftaran, Anda dapat menggunakan dokumen alternatif berupa:</p>
+                                    <ol>
+                                        <li>Surat Keterangan Lulus (SKL) yang dikeluarkan oleh kepala sekolah</li>
+                                        <li>Surat Keterangan Hasil Ujian Sekolah (SKHUS)</li>
+                                        <li>Surat pernyataan dari kepala sekolah yang menyatakan bahwa siswa tersebut dipastikan lulus</li>
+                                    </ol>
+                                    <p>Dokumen alternatif tersebut harus memuat informasi identitas siswa, nilai, dan pernyataan kelulusan, serta ditandatangani oleh kepala sekolah dan diberi stempel sekolah resmi. Jika nanti sudah mendapatkan ijazah asli, Anda wajib melakukan pembaruan dokumen pada saat daftar ulang jika diterima.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-dokumen">Dokumen</span> Apakah dokumen asli perlu dibawa saat pendaftaran online?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Tidak, saat pendaftaran online Anda hanya perlu mengunggah scan/foto dokumen yang dibutuhkan. Dokumen asli tidak perlu dibawa saat itu, namun harus disiapkan untuk:</p>
+                                    <ul>
+                                        <li>Verifikasi berkas (jika diperlukan oleh panitia)</li>
+                                        <li>Proses daftar ulang bagi yang diterima</li>
+                                    </ul>
+                                    <p>Pastikan scan/foto dokumen jelas dan sesuai dengan dokumen asli, karena panitia akan melakukan pengecekan kesesuaian dokumen saat verifikasi atau daftar ulang. Jika ditemukan ketidaksesuaian, dapat berakibat pada pembatalan penerimaan.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-dokumen">Dokumen</span> Bagaimana cara mendapatkan Surat Keterangan Domisili?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Untuk mendapatkan Surat Keterangan Domisili, ikuti langkah-langkah berikut:</p>
+                                    <ol>
+                                        <li>Datang ke kantor RT/RW setempat untuk mendapatkan surat pengantar</li>
+                                        <li>Bawa surat pengantar dari RT/RW ke kantor kelurahan tempat Anda tinggal</li>
+                                        <li>Sertakan dokumen pendukung:
+                                            <ul>
+                                                <li>KTP orang tua/wali</li>
+                                                <li>Kartu Keluarga (jika ada)</li>
+                                                <li>Bukti tempat tinggal (kontrak rumah/bukti kepemilikan)</li>
+                                                <li>Bukti tagihan listrik/air/PBB</li>
+                                                <li>Pas foto ukuran 3x4 (2 lembar)</li>
+                                            </ul>
+                                        </li>
+                                        <li>Isi formulir permohonan Surat Keterangan Domisili</li>
+                                        <li>Tunggu proses penerbitan (biasanya 1-3 hari kerja)</li>
+                                    </ol>
+                                    <p>Surat Keterangan Domisili yang dikeluarkan harus memiliki tanggal penerbitan maksimal 6 bulan sebelum tanggal pendaftaran PPDB.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-dokumen">Dokumen</span> Apa yang terjadi jika dokumen yang diunggah tidak lengkap?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Jika dokumen yang diunggah tidak lengkap, beberapa hal berikut dapat terjadi:</p>
+                                    <ol>
+                                        <li>Sistem mungkin tidak mengizinkan Anda untuk melakukan finalisasi pendaftaran sampai semua dokumen wajib diunggah</li>
+                                        <li>Jika berhasil finalisasi, pendaftaran Anda akan masuk dalam kategori "Berkas Tidak Lengkap" pada tahap verifikasi</li>
+                                        <li>Panitia PPDB akan mengirimkan notifikasi untuk melengkapi dokumen dalam batas waktu tertentu</li>
+                                        <li>Jika tidak dilengkapi dalam batas waktu yang ditentukan, pendaftaran dapat dibatalkan</li>
+                                        <li>Kesempatan seleksi menjadi berkurang karena proses verifikasi tertunda</li>
+                                    </ol>
+                                    <p>Pastikan untuk melengkapi semua dokumen yang diminta sesuai dengan jalur pendaftaran yang dipilih sebelum melakukan finalisasi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Seleksi & Hasil -->
+                        <div class="faq-category" data-category="seleksi">
+                            <h3 class="category-title">Seleksi & Hasil</h3>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-seleksi">Seleksi</span> Bagaimana sistem seleksi untuk masing-masing jalur pendaftaran?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Sistem seleksi untuk masing-masing jalur pendaftaran:</p>
+                                    <ol>
+                                        <li><strong>Jalur Domisili (Zonasi):</strong> Seleksi berdasarkan jarak tempat tinggal ke sekolah. Semakin dekat jarak tempat tinggal dengan sekolah, semakin tinggi prioritas penerimaan.</li>
+                                        <li><strong>Jalur Afirmasi:</strong> Seleksi berdasarkan jenis bantuan sosial (KIP/PKH diprioritaskan daripada SKTM) dan jarak tempat tinggal ke sekolah. Jika kuota masih tersedia, semua pendaftar yang memenuhi syarat akan diterima.</li>
+                                        <li><strong>Jalur Prestasi:</strong> Seleksi berdasarkan poin prestasi yang dihitung dari tingkat kompetisi (internasional, nasional, provinsi, kota), peringkat/juara, dan nilai rapor. Pendaftar dengan poin tertinggi akan diprioritaskan.</li>
+                                        <li><strong>Jalur Pindah Tugas:</strong> Seleksi berdasarkan tanggal SK pindah tugas (yang lebih baru diprioritaskan) dan kelengkapan dokumen. Jika kuota masih tersedia, semua pendaftar yang memenuhi syarat akan diterima.</li>
+                                    </ol>
+                                    <p>Jika terjadi kesamaan nilai akhir pada pendaftar, urutan prioritas akan ditentukan berdasarkan waktu pendaftaran (yang lebih awal didahulukan).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-seleksi">Seleksi</span> Kapan pengumuman hasil seleksi PPDB?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Pengumuman hasil seleksi PPDB Kota Solok tahun ajaran 2025/2026 akan dilaksanakan pada <span class="highlight">25 April 2025</span>. Hasil seleksi dapat diakses melalui:</p>
+                                    <ul>
+                                        <li>Website resmi PPDB Kota Solok (ppdb.solok.go.id)</li>
+                                        <li>Akun PPDB masing-masing pendaftar</li>
+                                        <li>Papan pengumuman di Dinas Pendidikan Kota Solok</li>
+                                        <li>Papan pengumuman di sekolah tujuan</li>
+                                    </ul>
+                                    <p>Hasil seleksi juga akan dikirimkan melalui email dan SMS/Whatsapp (jika nomor terdaftar) ke kontak yang dicantumkan saat pendaftaran.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-seleksi">Seleksi</span> Apakah ada sistem waiting list jika tidak diterima?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Ya, PPDB Kota Solok menerapkan sistem waiting list (daftar tunggu) bagi pendaftar yang tidak diterima pada pilihan pertama atau kedua. Sistem ini berfungsi sebagai berikut:</p>
+                                    <ol>
+                                        <li>Pendaftar yang tidak diterima akan ditempatkan dalam daftar tunggu sesuai dengan peringkat seleksi mereka</li>
+                                        <li>Jika ada peserta yang diterima tetapi tidak melakukan daftar ulang dalam batas waktu yang ditentukan, kuota akan diberikan kepada pendaftar dalam daftar tunggu berdasarkan peringkat</li>
+                                        <li>Status daftar tunggu dapat dipantau melalui akun PPDB masing-masing</li>
+                                        <li>Pemberitahuan akan dikirimkan jika status berubah dari daftar tunggu menjadi diterima</li>
+                                    </ol>
+                                    <p>Daftar tunggu berlaku hingga batas akhir periode daftar ulang. Jika hingga batas tersebut status masih dalam daftar tunggu, pendaftar dapat mengikuti pendaftaran gelombang kedua (jika ada) untuk sekolah yang masih memiliki kuota tersisa.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-seleksi">Seleksi</span> Apa yang harus dilakukan jika diterima?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Jika Anda diterima di salah satu sekolah pilihan, langkah-langkah yang harus dilakukan adalah:</p>
+                                    <ol>
+                                        <li>Cetak bukti penerimaan/surat keterangan diterima dari akun PPDB</li>
+                                        <li>Lakukan daftar ulang ke sekolah dalam batas waktu yang ditentukan (27-30 April 2025)</li>
+                                        <li>Siapkan dokumen asli yang diperlukan untuk daftar ulang:
+                                            <ul>
+                                                <li>Bukti penerimaan PPDB</li>
+                                                <li>Kartu Keluarga asli</li>
+                                                <li>Akta Kelahiran asli</li>
+                                                <li>Ijazah/SKHUN/SKL asli</li>
+                                                <li>Dokumen pendukung sesuai jalur pendaftaran</li>
+                                                <li>Pas foto terbaru ukuran 3x4 (6 lembar)</li>
+                                            </ul>
+                                        </li>
+                                        <li>Isi formulir daftar ulang di sekolah</li>
+                                        <li>Ikuti prosedur dan persyaratan tambahan yang ditetapkan oleh sekolah</li>
+                                    </ol>
+                                    <p><strong>Penting:</strong> Jika tidak melakukan daftar ulang dalam batas waktu yang ditentukan, status penerimaan akan dibatalkan dan kuota akan diberikan kepada pendaftar dalam daftar tunggu.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span><span class="faq-tag tag-seleksi">Seleksi</span> Bagaimana cara mengajukan keberatan jika tidak diterima?</span>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Jika Anda tidak diterima dan ingin mengajukan keberatan, ikuti prosedur berikut:</p>
+                                    <ol>
+                                        <li>Siapkan bukti pendaftaran dan dokumen pendukung yang menjadi dasar keberatan</li>
+                                        <li>Ajukan surat keberatan resmi yang ditujukan kepada Ketua Panitia PPDB Kota Solok</li>
+                                        <li>Dalam surat, jelaskan alasan keberatan secara spesifik dan faktual</li>
+                                        <li>Sertakan dokumen pendukung (fotokopi)</li>
+                                        <li>Serahkan langsung ke Sekretariat PPDB di Dinas Pendidikan Kota Solok maksimal 2 hari setelah pengumuman hasil seleksi</li>
+                                    </ol>
+                                    <p>Keberatan akan ditinjau oleh tim khusus, dan hasil peninjauan akan disampaikan maksimal 3 hari kerja setelah pengajuan keberatan. Keputusan tim peninjauan bersifat final dan tidak dapat diganggu gugat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="support-section">
+                        <h3 class="support-title">Butuh Bantuan Lebih Lanjut?</h3>
+                        <div class="support-options">
+                            <div class="support-option">
+                                <div class="support-icon">📞</div>
+                                <div class="support-name">Hotline PPDB</div>
+                                <div class="support-desc">Layanan telepon untuk pertanyaan seputar PPDB</div>
+                                <div class="support-contact">(0755) 20123</div>
+                            </div>
+                            
+                            <div class="support-option">
+                                <div class="support-icon">📱</div>
+                                <div class="support-name">WhatsApp Center</div>
+                                <div class="support-desc">Konsultasi langsung via WhatsApp</div>
+                                <div class="support-contact">0812-3456-7890</div>
+                            </div>
+                            
+                            <div class="support-option">
+                                <div class="support-icon">📧</div>
+                                <div class="support-name">Email Support</div>
+                                <div class="support-desc">Kirim pertanyaan atau laporan masalah</div>
+                                <div class="support-contact">ppdb@solok.go.id</div>
+                            </div>
+                            
+                            <div class="support-option">
+                                <div class="support-icon">🏢</div>
+                                <div class="support-name">Posko Bantuan</div>
+                                <div class="support-desc">Bantuan langsung di Dinas Pendidikan</div>
+                                <div class="support-contact">08.00 - 16.00 WIB</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dinas Pendidikan Kota Solok. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Accordion functionality
+        const questions = document.querySelectorAll('.faq-question');
+        
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                question.classList.toggle('active');
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.getElementById('searchFaq');
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            faqItems.forEach(item => {
+                const questionText = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answerText = item.querySelector('.faq-answer').textContent.toLowerCase();
+                const isVisible = questionText.includes(searchTerm) || answerText.includes(searchTerm);
+                
+                item.style.display = isVisible ? 'block' : 'none';
+            });
+            
+            // Show/hide category headers based on visible items
+            document.querySelectorAll('.faq-category').forEach(category => {
+                const visibleItems = [...category.querySelectorAll('.faq-item')].filter(item => 
+                    item.style.display !== 'none'
+                );
+                
+                category.style.display = visibleItems.length > 0 ? 'block' : 'none';
+            });
+        });
+        
+        // Filter functionality
+        const filterTags = document.querySelectorAll('.filter-tag');
+        const faqCategories = document.querySelectorAll('.faq-category');
+        
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                // Remove active class from all tags
+                filterTags.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked tag
+                tag.classList.add('active');
+                
+                const filter = tag.getAttribute('data-filter');
+                
+                if (filter === 'all') {
+                    // Show all categories
+                    faqCategories.forEach(category => {
+                        category.style.display = 'block';
+                    });
+                    
+                    // Show all items
+                    faqItems.forEach(item => {
+                        item.style.display = 'block';
+                    });
+                } else {
+                    // Hide all categories first
+                    faqCategories.forEach(category => {
+                        category.style.display = 'none';
+                    });
+                    
+                    // Show only the selected category
+                    document.querySelector(`.faq-category[data-category="${filter}"]`).style.display = 'block';
+                    
+                    // Hide all faq items first
+                    faqItems.forEach(item => {
+                        item.style.display = 'none';
+                    });
+                    
+                    // Show only the items in the selected category
+                    document.querySelectorAll(`.faq-category[data-category="${filter}"] .faq-item`).forEach(item => {
+                        item.style.display = 'block';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal dan Persyaratan PPDB Kota Solok 2025</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1b99e5;
+            --primary-dark: #1680c2;
+            --primary-light: #6bc8ff;
+            --gradient-start: #1b99e5;
+            --gradient-end: #0056b3;
+            --white: #ffffff;
+            --dark: #333333;
+            --gray: #f5f5f5;
+            --gray-dark: #e0e0e0;
+            --gray-text: #777777;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --shadow-dark: 0 5px 15px rgba(0, 0, 0, 0.2);
+            
+            /* Pathway colors */
+            --domisili: #4CAF50;
+            --afirmasi: #FF9800;
+            --prestasi: #E91E63;
+            --pindah: #673AB7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f9ff, #ecf4ff);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--white), #f8fbff);
+            box-shadow: var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--primary);
+        }
+        
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 10px;
+            line-height: 1.2;
+            box-shadow: 0 3px 8px rgba(27, 153, 229, 0.3);
+        }
+        
+        .brand-name {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Main Section */
+        .main-section {
+            padding: 30px 0;
+            flex-grow: 1;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--gray-text);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .content-container {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .content-header {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            color: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .content-header h2 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .school-year {
+            font-size: 14px;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+        
+        .content-body {
+            padding: 20px;
+        }
+        
+        /* Tabs */
+        .tab-navigation {
+            display: flex;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tab {
+            padding: 15px 20px;
+            color: var(--dark);
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background-color: rgba(27, 153, 229, 0.05);
+        }
+        
+        .tab:hover:not(.active) {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--gradient-start), var(--gradient-end));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .timeline-event {
+            position: relative;
+            width: 50%;
+            padding: 0 40px 40px 0;
+            box-sizing: border-box;
+        }
+        
+        .timeline-event:nth-child(even) {
+            left: 50%;
+            padding: 0 0 40px 40px;
+        }
+        
+        .timeline-event:last-child {
+            padding-bottom: 0;
+        }
+        
+        .timeline-content {
+            position: relative;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: 50%;
+            right: -50px;
+            background: var(--white);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            z-index: 1;
+            transform: translateY(-50%);
+            box-shadow: 0 0 0 4px rgba(27, 153, 229, 0.2);
+        }
+        
+        .timeline-event:nth-child(even) .timeline-content::after {
+            left: -50px;
+            right: auto;
+        }
+        
+        .timeline-date {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .timeline-desc {
+            font-size: 14px;
+            color: var(--gray-text);
+        }
+        
+        /* Requirements */
+        .requirement-section {
+            margin-bottom: 30px;
+        }
+        
+        .requirement-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--gray-dark);
+        }
+        
+        .requirement-subtitle {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 20px 0 10px;
+            color: var(--dark);
+        }
+        
+        .requirement-list {
+            list-style: none;
+        }
+        
+        .requirement-list li {
+            position: relative;
+            padding: 10px 0 10px 30px;
+            border-bottom: 1px dashed var(--gray-dark);
+        }
+        
+        .requirement-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .requirement-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .note-box {
+            background-color: #e3f2fd;
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        .warning-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        /* Pathway Specific */
+        .pathway-title {
+            display: inline-block;
+            padding: 5px 15px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 30px;
+        }
+        
+        .domisili-title {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--domisili);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .afirmasi-title {
+            background-color: rgba(255, 152, 0, 0.1);
+            color: var(--afirmasi);
+            border: 1px solid rgba(255, 152, 0, 0.3);
+        }
+        
+        .prestasi-title {
+            background-color: rgba(233, 30, 99, 0.1);
+            color: var(--prestasi);
+            border: 1px solid rgba(233, 30, 99, 0.3);
+        }
+        
+        .pindah-title {
+            background-color: rgba(103, 58, 183, 0.1);
+            color: var(--pindah);
+            border: 1px solid rgba(103, 58, 183, 0.3);
+        }
+        
+        .pathway-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pathway-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+        }
+        
+        .domisili-card::before {
+            background-color: var(--domisili);
+        }
+        
+        .afirmasi-card::before {
+            background-color: var(--afirmasi);
+        }
+        
+        .prestasi-card::before {
+            background-color: var(--prestasi);
+        }
+        
+        .pindah-card::before {
+            background-color: var(--pindah);
+        }
+        
+        /* Process Steps */
+        .process-steps {
+            margin: 30px 0;
+            counter-reset: step-counter;
+        }
+        
+        .step {
+            position: relative;
+            padding: 20px 20px 20px 80px;
+            margin-bottom: 20px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .step::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 18px;
+            box-shadow: 0 3px 6px rgba(27, 153, 229, 0.3);
+        }
+        
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .step-desc {
+            font-size: 14px;
+            color: var(--gray-text);
+        }
+        
+        /* File Requirements */
+        .file-requirements {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .file-item {
+            background-color: var(--gray);
+            border-radius: 4px;
+            padding: 15px;
+            flex: 1;
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .file-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--white);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 24px;
+            color: var(--primary);
+        }
+        
+        .file-name {
+            font-weight: 500;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .file-info {
+            font-size: 12px;
+            color: var(--gray-text);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray-text);
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+        
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 40px;
+            }
+            
+            .timeline-event {
+                width: 100%;
+                padding-right: 0;
+                padding-left: 80px;
+            }
+            
+            .timeline-event:nth-child(even) {
+                left: 0;
+                padding-left: 80px;
+            }
+            
+            .timeline-content::after {
+                left: -50px;
+                right: auto;
+            }
+            
+            .tab-navigation {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="brand">
+                    <div class="brand-logo">SPMB<br>2025</div>
+                    <div class="brand-name">PPDB Kota Solok</div>
+                </a>
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Beranda</a>
+                    <a href="#" class="nav-link">Zonasi</a>
+                    <a href="#" class="nav-link">Kuota</a>
+                    <a href="#" class="nav-link">Kontak</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="main-section">
+        <div class="container">
+            <h1 class="section-title">Jadwal & Persyaratan PPDB</h1>
+            <p class="section-subtitle">Informasi lengkap jadwal, persyaratan, dan proses pendaftaran PPDB Kota Solok tahun ajaran 2025/2026</p>
+            
+            <div class="content-container">
+                <div class="content-header">
+                    <h2>Informasi PPDB SMPN Kota Solok</h2>
+                    <span class="school-year">Tahun Ajaran 2025/2026</span>
+                </div>
+                
+                <div class="content-body">
+                    <div class="tab-navigation">
+                        <div class="tab active" data-tab="jadwal">Jadwal PPDB</div>
+                        <div class="tab" data-tab="persyaratan">Persyaratan</div>
+                        <div class="tab" data-tab="alur">Alur Pendaftaran</div>
+                        <div class="tab" data-tab="dokumen">Dokumen Pendukung</div>
+                    </div>
+                    
+                    <!-- Jadwal Tab Content -->
+                    <div class="tab-content active" id="jadwal-content">
+                        <div class="timeline">
+                            <div class="timeline-event">
+                                <div class="timeline-content">
+                                    <div class="timeline-date">1 - 15 Maret 2025</div>
+                                    <h3 class="timeline-title">Pendaftaran Akun</h3>
+                                    <p class="timeline-desc">Calon peserta didik melakukan pendaftaran akun melalui website PPDB Kota Solok</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-event">
+                                <div class="timeline-content">
+                                    <div class="timeline-date">20 - 31 Maret 2025</div>
+                                    <h3 class="timeline-title">Pengisian Data & Upload Dokumen</h3>
+                                    <p class="timeline-desc">Pengisian formulir pendaftaran dan upload dokumen persyaratan sesuai jalur yang dipilih</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-event">
+                                <div class="timeline-content">
+                                    <div class="timeline-date">1 - 10 April 2025</div>
+                                    <h3 class="timeline-title">Verifikasi Dokumen</h3>
+                                    <p class="timeline-desc">Panitia PPDB melakukan verifikasi berkas pendaftaran dan dokumen pendukung</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-event">
+                                <div class="timeline-content">
+                                    <div class="timeline-date">15 - 20 April 2025</div>
+                                    <h3 class="timeline-title">Seleksi</h3>
+                                    <p class="timeline-desc">Proses seleksi berdasarkan jalur pendaftaran dan kriteria yang telah ditetapkan</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-event">
+                                <div class="timeline-content">
+                                    <div class="timeline-date">25 April 2025</div>
+                                    <h3 class="timeline-title">Pengumuman Hasil Seleksi</h3>
+                                    <p class="timeline-desc">Pengumuman hasil seleksi di website PPDB dan papan pengumuman sekolah</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-event">
+                                <div class="timeline-content">
+                                    <div class="timeline-date">27 - 30 April 2025</div>
+                                    <h3 class="timeline-title">Daftar Ulang</h3>
+                                    <p class="timeline-desc">Peserta didik yang diterima melakukan daftar ulang di sekolah masing-masing</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-event">
+                                <div class="timeline-content">
+                                    <div class="timeline-date">1 - 5 Mei 2025</div>
+                                    <h3 class="timeline-title">Pendaftaran Gelombang Kedua</h3>
+                                    <p class="timeline-desc">Pendaftaran untuk sekolah yang masih memiliki kuota tersisa (bila ada)</p>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-event">
+                                <div class="timeline-content">
+                                    <div class="timeline-date">15 Juli 2025</div>
+                                    <h3 class="timeline-title">Masa Pengenalan Sekolah</h3>
+                                    <p class="timeline-desc">Awal kegiatan pengenalan lingkungan sekolah bagi peserta didik baru</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="note-box">
+                            <p><strong>Catatan:</strong> Jadwal dapat berubah sewaktu-waktu. Silakan pantau pengumuman resmi dari Dinas Pendidikan Kota Solok.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Persyaratan Tab Content -->
+                    <div class="tab-content" id="persyaratan-content">
+                        <div class="requirement-section">
+                            <h3 class="requirement-title">Persyaratan Umum</h3>
+                            <ul class="requirement-list">
+                                <li>Berusia maksimal 15 tahun pada tanggal 1 Juli 2025</li>
+                                <li>Lulus SD/MI atau sederajat (memiliki ijazah/SKHUN/Surat Keterangan Lulus)</li>
+                                <li>Mengisi formulir pendaftaran secara online melalui website PPDB</li>
+                                <li>Melampirkan dokumen pendukung sesuai jalur pendaftaran</li>
+                                <li>Memenuhi persyaratan khusus sesuai jalur yang dipilih</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="requirement-section">
+                            <h3 class="requirement-title">Persyaratan Khusus Per Jalur</h3>
+                            
+                            <div class="pathway-card domisili-card">
+                                <h4 class="pathway-title domisili-title">Jalur Domisili (Zonasi)</h4>
+                                <ul class="requirement-list">
+                                    <li>Kartu Keluarga (KK) atau Surat Keterangan Domisili yang diterbitkan paling lambat 6 bulan sebelum pendaftaran PPDB</li>
+                                    <li>Alamat pada Kartu Keluarga harus sesuai dengan wilayah zonasi sekolah yang dituju</li>
+                                    <li>Bukti tagihan listrik/air/PBB (salah satu) sebagai verifikasi alamat</li>
+                                    <li>Akta kelahiran asli atau fotokopi yang dilegalisir</li>
+                                </ul>
+                                <div class="note-box">
+                                    <p>Seleksi dilakukan berdasarkan jarak tempat tinggal ke sekolah. Semakin dekat jarak, semakin tinggi prioritas.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="pathway-card afirmasi-card">
+                                <h4 class="pathway-title afirmasi-title">Jalur Afirmasi</h4>
+                                <ul class="requirement-list">
+                                    <li>Kartu Indonesia Pintar (KIP) atau Kartu Perlindungan Sosial (KPS) yang masih berlaku; atau</li>
+                                    <li>Kartu Program Keluarga Harapan (PKH) yang masih berlaku; atau</li>
+                                    <li>Surat Keterangan Tidak Mampu (SKTM) dari kelurahan yang dikeluarkan maksimal 3 bulan sebelum pendaftaran</li>
+                                    <li>Kartu Keluarga (KK)</li>
+                                    <li>Akta kelahiran asli atau fotokopi yang dilegalisir</li>
+                                    <li>Pas foto berwarna ukuran 3x4 (4 lembar)</li>
+                                </ul>
+                                <div class="warning-box">
+                                    <p>Peserta jalur afirmasi wajib melampirkan dokumen pendukung yang asli untuk diverifikasi. Jika terbukti memalsukan dokumen, siswa dapat dibatalkan penerimaannya.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="pathway-card prestasi-card">
+                                <h4 class="pathway-title prestasi-title">Jalur Prestasi</h4>
+                                <ul class="requirement-list">
+                                    <li>Fotokopi raport SD/MI atau sederajat selama 5 semester terakhir yang dilegalisir</li>
+                                    <li>Fotokopi piagam/sertifikat prestasi akademik atau non-akademik tingkat kota/kabupaten, provinsi, nasional, atau internasional (dilegalisir)</li>
+                                    <li>Surat keterangan prestasi dari sekolah asal yang diketahui kepala sekolah</li>
+                                    <li>Kartu Keluarga (KK)</li>
+                                    <li>Akta kelahiran asli atau fotokopi yang dilegalisir</li>
+                                    <li>Pas foto berwarna ukuran 3x4 (4 lembar)</li>
+                                </ul>
+                                <div class="note-box">
+                                    <p>Prestasi yang diperhitungkan adalah prestasi yang diperoleh selama SD/MI dari kelas 4 hingga kelas 6. Prestasi akan diberi poin sesuai tingkatan (kota/kabupaten, provinsi, nasional, internasional).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="pathway-card pindah-card">
+                                <h4 class="pathway-title pindah-title">Jalur Pindah Tugas</h4>
+                                <ul class="requirement-list">
+                                    <li>Surat penugasan atau surat pindah tugas orang tua/wali dari instansi/lembaga/kantor/perusahaan yang bersangkutan</li>
+                                    <li>Surat keterangan dari instansi tempat orang tua/wali bekerja yang menyatakan bahwa yang bersangkutan telah bertugas di wilayah Kota Solok</li>
+                                    <li>Kartu Keluarga (KK) atau Surat Keterangan Domisili terbaru</li>
+                                    <li>Fotokopi SK penempatan/mutasi yang dilegalisir</li>
+                                    <li>Akta kelahiran asli atau fotokopi yang dilegalisir</li>
+                                    <li>Pas foto berwarna ukuran 3x4 (4 lembar)</li>
+                                </ul>
+                                <div class="note-box">
+                                    <p>Perpindahan tugas orang tua/wali harus terjadi maksimal 1 tahun sebelum tanggal pendaftaran PPDB.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Alur Pendaftaran Tab Content -->
+                    <div class="tab-content" id="alur-content">
+                        <div class="process-steps">
+                            <div class="step">
+                                <h3 class="step-title">Pendaftaran Akun</h3>
+                                <p class="step-desc">Buka website ppdb.solok.go.id dan pilih "Daftar Akun Baru". Isi data diri dengan benar sesuai dokumen resmi. Verifikasi email dan aktivasi akun.</p>
+                            </div>
+                            
+                            <div class="step">
+                                <h3 class="step-title">Pilih Jalur Pendaftaran</h3>
+                                <p class="step-desc">Login ke akun yang sudah dibuat. Pilih jalur pendaftaran (Domisili, Afirmasi, Prestasi, atau Pindah Tugas) sesuai dengan kriteria dan persyaratan yang dapat Anda penuhi.</p>
+                            </div>
+                            
+                            <div class="step">
+                                <h3 class="step-title">Isi Formulir & Pilih Sekolah</h3>
+                                <p class="step-desc">Lengkapi formulir pendaftaran dengan teliti. Untuk jalur Domisili, pilih sekolah sesuai zonasi. Untuk jalur lain, Anda dapat memilih maksimal 2 sekolah pilihan.</p>
+                            </div>
+                            
+                            <div class="step">
+                                <h3 class="step-title">Upload Dokumen</h3>
+                                <p class="step-desc">Unggah semua dokumen persyaratan sesuai jalur yang dipilih. Pastikan file dalam format PDF/JPG dengan ukuran maksimal 1MB per file dan dapat terbaca dengan jelas.</p>
+                            </div>
+                            
+                            <div class="step">
+                                <h3 class="step-title">Verifikasi & Finalisasi</h3>
+                                <p class="step-desc">Periksa kembali seluruh data dan dokumen yang diinput. Klik tombol "Finalisasi Pendaftaran" untuk menyelesaikan proses. Cetak bukti pendaftaran sebagai referensi.</p>
+                            </div>
+                            
+                            <div class="step">
+                                <h3 class="step-title">Pantau Status Pendaftaran</h3>
+                                <p class="step-desc">Pantau status pendaftaran melalui akun PPDB Anda. Status akan diperbarui setelah proses verifikasi oleh panitia PPDB.</p>
+                            </div>
+                            
+                            <div class="step">
+                                <h3 class="step-title">Pengumuman Hasil</h3>
+                                <p class="step-desc">Cek hasil seleksi pada tanggal yang ditentukan. Peserta yang diterima akan mendapatkan notifikasi email dan dapat melihat hasilnya di akun PPDB.</p>
+                            </div>
+                            
+                            <div class="step">
+                                <h3 class="step-title">Daftar Ulang</h3>
+                                <p class="step-desc">Peserta yang diterima wajib melakukan daftar ulang sesuai jadwal dengan membawa dokumen asli dan persyaratan daftar ulang lainnya yang ditentukan sekolah.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <p><strong>Penting:</strong> Pendaftaran yang telah difinalisasi tidak dapat diubah. Pastikan seluruh data dan dokumen sudah benar sebelum finalisasi. Keterlambatan dalam proses pendaftaran atau daftar ulang dapat mengakibatkan pembatalan penerimaan.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Dokumen Tab Content -->
+                    <div class="tab-content" id="dokumen-content">
+                        <div class="requirement-section">
+                            <h3 class="requirement-title">Dokumen Wajib (Semua Jalur)</h3>
+                            
+                            <div class="file-requirements">
+                                <div class="file-item">
+                                    <div class="file-icon">📋</div>
+                                    <div class="file-name">Kartu Keluarga</div>
+                                    <div class="file-info">PDF/JPG, maks 1MB</div>
+                                </div>
+                                
+                                <div class="file-item">
+                                    <div class="file-icon">👶</div>
+                                    <div class="file-name">Akta Kelahiran</div>
+                                    <div class="file-info">PDF/JPG, maks 1MB</div>
+                                </div>
+                                
+                                <div class="file-item">
+                                    <div class="file-icon">🎓</div>
+                                    <div class="file-name">Ijazah/SKL</div>
+                                    <div class="file-info">PDF/JPG, maks 1MB</div>
+                                </div>
+                                
+                                <div class="file-item">
+                                    <div class="file-icon">📷</div>
+                                    <div class="file-name">Pas Foto</div>
+                                    <div class="file-info">JPG, 3x4, maks 500KB</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="requirement-section">
+                            <h3 class="requirement-title">Dokumen Khusus Per Jalur</h3>
+                            
+                            <h4 class="requirement-subtitle">Jalur Domisili (Zonasi)</h4>
+                            <div class="file-requirements">
+                                <div class="file-item">
+                                    <div class="file-icon">🏠</div>
+                                    <div class="file-name">Bukti Alamat</div>
+                                    <div class="file-info">Tagihan listrik/air/PBB</div>
+                                </div>
+                                
+                                <div class="file-item">
+                                    <div class="file-icon">📍</div>
+                                    <div class="file-name">Keterangan Domisili</div>
+                                    <div class="file-info">Jika KK belum update</div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="requirement-subtitle">Jalur Afirmasi</h4>
+                            <div class="file-requirements">
+                                <div class="file-item">
+                                    <div class="file-icon">💳</div>
+                                    <div class="file-name">KIP/KPS</div>
+                                    <div class="file-info">Masih berlaku</div>
+                                </div>
+                                
+                                <div class="file-item">
+                                    <div class="file-icon">📑</div>
+                                    <div class="file-name">Kartu PKH</div>
+                                    <div class="file-info">Jika memiliki</div>
+                                </div>
+                                
+                                <div class="file-item">
+                                    <div class="file-icon">📜</div>
+                                    <div class="file-name">SKTM</div>
+                                    <div class="file-info">Maks. 3 bulan</div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="requirement-subtitle">Jalur Prestasi</h4>
+                            <div class="file-requirements">
+                                <div class="file-item">
+                                    <div class="file-icon">📊</div>
+                                    <div class="file-name">Rapor 5 Semester</div>
+                                    <div class="file-info">Dilegalisir sekolah</div>
+                                </div>
+                                
+                                <div class="file-item">
+                                    <div class="file-icon">🏆</div>
+                                    <div class="file-name">Piagam/Sertifikat</div>
+                                    <div class="file-info">Dilegalisir sekolah</div>
+                                </div>
+                                
+                                <div class="file-item">
+                                    <div class="file-icon">📝</div>
+                                    <div class="file-name">Surat Keterangan</div>
+                                    <div class="file-info">Dari Kepala Sekolah</div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="requirement-subtitle">Jalur Pindah Tugas</h4>
+                            <div class="file-requirements">
+                                <div class="file-item">
+                                    <div class="file-icon">📄</div>
+                                    <div class="file-name">Surat Penugasan</div>
+                                    <div class="file-info">Asli dan terbaru</div>
+                                </div>
+                                
+                                <div class="file-item">
+                                    <div class="file-icon">📋</div>
+                                    <div class="file-name">SK Penempatan</div>
+                                    <div class="file-info">Dilegalisir</div>
+                                </div>
+                                
+                                <div class="file-item">
+                                    <div class="file-icon">🏢</div>
+                                    <div class="file-name">Surat Keterangan</div>
+                                    <div class="file-info">Dari instansi/kantor</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="requirement-section">
+                            <h3 class="requirement-title">Ketentuan Dokumen Elektronik</h3>
+                            <ul class="requirement-list">
+                                <li>Format file: PDF atau JPG/JPEG (kecuali pas foto harus JPG/JPEG)</li>
+                                <li>Ukuran maksimal setiap file: 1MB (pas foto maksimal 500KB)</li>
+                                <li>Resolusi minimal: 300 dpi agar terbaca dengan jelas</li>
+                                <li>Nama file: nama_dokumen_nama_siswa.pdf/jpg (contoh: kk_budi_santoso.pdf)</li>
+                                <li>Dokumen harus lengkap dan terbaca dengan jelas</li>
+                                <li>Pas foto harus berwarna dengan latar belakang biru, ukuran 3x4</li>
+                            </ul>
+                            
+                            <div class="warning-box">
+                                <p><strong>Perhatian:</strong> Dokumen yang tidak sesuai ketentuan dapat menyebabkan proses verifikasi tertunda atau ditolak. Pastikan semua dokumen disiapkan sesuai persyaratan.</p>
+                            </div>
+                            
+                            <div class="note-box">
+                                <p><strong>Bantuan:</strong> Bagi calon siswa yang kesulitan dalam proses scan dokumen atau upload, dapat mengunjungi pusat bantuan PPDB di Kantor Dinas Pendidikan Kota Solok pada jam kerja.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dinas Pendidikan Kota Solok. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Tab functionality
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        function switchTab(tabId) {
+            // Deactivate all tabs and contents
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Activate the selected tab and content
+            document.querySelector(`.tab[data-tab="${tabId}"]`).classList.add('active');
+            document.getElementById(`${tabId}-content`).classList.add('active');
+        }
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                switchTab(tabId);
+            });
+        });
+    </script>
+</body>
+</html>

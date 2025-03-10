@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Pendaftaran SPMB Kota Solok 2025</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1b99e5;
+            --primary-dark: #1680c2;
+            --primary-light: #6bc8ff;
+            --gradient-start: #1b99e5;
+            --gradient-end: #0056b3;
+            --white: #ffffff;
+            --dark: #333333;
+            --gray: #f5f5f5;
+            --gray-dark: #e0e0e0;
+            --gray-text: #777777;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --shadow-dark: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--gray);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 15px 0;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--primary);
+        }
+        
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 10px;
+            line-height: 1.2;
+            box-shadow: 0 3px 8px rgba(27, 153, 229, 0.3);
+        }
+        
+        .brand-name {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Main Section */
+        .login-register-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 0;
+            flex-grow: 1;
+        }
+        
+        .auth-container {
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            min-height: 500px;
+        }
+        
+        .auth-image {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(27, 153, 229, 0.85), rgba(0, 86, 179, 0.95)), url('/api/placeholder/600/900') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .auth-image h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .auth-image p {
+            font-size: 1rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .auth-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .auth-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .check-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            color: var(--primary);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+        }
+        
+        .auth-forms {
+            flex: 1;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .form-tabs {
+            display: flex;
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+        
+        .form-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            flex: 1;
+            text-align: center;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .form-tab.active {
+            color: var(--primary);
+        }
+        
+        .form-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .form-content {
+            display: none;
+        }
+        
+        .form-content.active {
+            display: block;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--dark);
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray-dark);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(27, 153, 229, 0.2);
+        }
+        
+        .form-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, var(--gradient-end), var(--gradient-start));
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 30px;
+            box-shadow: 0 4px 10px rgba(27, 153, 229, 0.3);
+        }
+        
+        .form-btn:hover {
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            box-shadow: 0 6px 15px rgba(27, 153, 229, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .form-footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray-text);
+        }
+        
+        .form-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+            color: var(--gray-text);
+            font-size: 14px;
+        }
+        
+        .auth-divider::before,
+        .auth-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+        
+        .auth-divider::before {
+            margin-right: 10px;
+        }
+        
+        .auth-divider::after {
+            margin-left: 10px;
+        }
+        
+        .social-auth {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .social-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            border: 1px solid var(--gray-dark);
+            border-radius: 5px;
+            background-color: var(--white);
+            color: var(--dark);
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .social-btn:hover {
+            background-color: var(--gray);
+        }
+        
+        .form-note {
+            font-size: 12px;
+            color: var(--gray-text);
+            margin-top: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray-text);
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .auth-container {
+                flex-direction: column;
+                max-width: 500px;
+            }
+            
+            .auth-image {
+                display: none;
+            }
+            
+            .auth-forms {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="brand">
+                    <div class="brand-logo">SPMB<br>2025</div>
+                    <div class="brand-name">PPDB Kota Solok</div>
+                </a>
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Beranda</a>
+                    <a href="#" class="nav-link">Bantuan</a>
+                    <a href="#" class="nav-link">Kontak</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="login-register-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-image">
+                    <h2>Selamat Datang di Portal PPDB Kota Solok 2025</h2>
+                    <p>Daftarkan diri Anda untuk mengikuti seleksi penerimaan peserta didik baru dengan sistem yang transparan dan berkeadilan.</p>
+                    
+                    <ul class="auth-features">
+                        <li><span class="check-icon">✓</span> Proses pendaftaran online yang mudah</li>
+                        <li><span class="check-icon">✓</span> Pantau status pendaftaran secara real-time</li>
+                        <li><span class="check-icon">✓</span> Notifikasi hasil seleksi langsung</li>
+                        <li><span class="check-icon">✓</span> Dukungan teknis selama 24 jam</li>
+                    </ul>
+                </div>
+                
+                <div class="auth-forms">
+                    <div class="form-tabs">
+                        <div class="form-tab active" data-tab="login">Masuk</div>
+                        <div class="form-tab" data-tab="register">Daftar</div>
+                    </div>
+                    
+                    <div class="form-content active" id="login-form">
+                        <form>
+                            <div class="input-group">
+                                <label for="login-email">Email</label>
+                                <input type="email" id="login-email" placeholder="Masukkan email anda" required>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="login-password">Kata Sandi</label>
+                                <input type="password" id="login-password" placeholder="Masukkan kata sandi" required>
+                            </div>
+                            
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <label style="display: flex; align-items: center; gap: 5px; font-size: 14px; cursor: pointer;">
+                                    <input type="checkbox" style="width: auto;"> Ingat saya
+                                </label>
+                                <a href="#" style="font-size: 14px; color: var(--primary); text-decoration: none;">Lupa kata sandi?</a>
+                            </div>
+                            
+                            <button type="submit" class="form-btn">Masuk</button>
+                        </form>
+                        
+                        <div class="auth-divider">atau masuk dengan</div>
+                        
+                        <div class="social-auth">
+                            <button class="social-btn">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="#4285F4">
+                                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+                                </svg>
+                                Google
+                            </button>
+                            <button class="social-btn">
+                                <svg width="20" height="20" viewBox="0 0 1024 1024" fill="#1877F2">
+                                    <path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-92.4 233.5h-63.9c-50.1 0-59.8 23.8-59.8 58.8v77.1h119.6l-15.6 120.7h-104V912H539.2V602.2H434.9V481.4h104.3v-89c0-103.3 63.1-159.6 155.3-159.6 44.2 0 82.1 3.3 93.2 4.8v107.9z" />
+                                </svg>
+                                Facebook
+                            </button>
+                        </div>
+                        
+                        <div class="form-footer">
+                            Belum memiliki akun? <a href="#" class="tab-switch" data-tab="register">Daftar sekarang</a>
+                        </div>
+                    </div>
+                    
+                    <div class="form-content" id="register-form">
+                        <form>
+                            <div class="input-group">
+                                <label for="register-name">Nama Lengkap</label>
+                                <input type="text" id="register-name" placeholder="Masukkan nama lengkap" required>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="register-email">Email</label>
+                                <input type="email" id="register-email" placeholder="Masukkan email" required>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="register-phone">Nomor Telepon</label>
+                                <input type="tel" id="register-phone" placeholder="Masukkan nomor telepon" required>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="register-password">Kata Sandi</label>
+                                <input type="password" id="register-password" placeholder="Buat kata sandi" required>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="register-confirm-password">Konfirmasi Kata Sandi</label>
+                                <input type="password" id="register-confirm-password" placeholder="Konfirmasi kata sandi" required>
+                            </div>
+                            
+                            <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 14px; margin-top: 20px; cursor: pointer;">
+                                <input type="checkbox" style="width: auto; margin-top: 3px;" required>
+                                <span>Saya setuju dengan <a href="#" style="color: var(--primary);">Syarat & Ketentuan</a> dan <a href="#" style="color: var(--primary);">Kebijakan Privasi</a> PPDB Kota Solok</span>
+                            </label>
+                            
+                            <button type="submit" class="form-btn">Daftar</button>
+                        </form>
+                        
+                        <div class="form-note">
+                            * Setelah pendaftaran, Anda akan menerima email konfirmasi dengan langkah-langkah selanjutnya untuk melengkapi profil dan dokumen persyaratan.
+                        </div>
+                        
+                        <div class="form-footer">
+                            Sudah memiliki akun? <a href="#" class="tab-switch" data-tab="login">Masuk</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dinas Pendidikan Kota Solok. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Tab switching functionality
+        const tabs = document.querySelectorAll('.form-tab');
+        const tabContents = document.querySelectorAll('.form-content');
+        const tabSwitchers = document.querySelectorAll('.tab-switch');
+        
+        function switchTab(tabId) {
+            // Deactivate all tabs and contents
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Activate the selected tab and content
+            document.querySelector(`.form-tab[data-tab="${tabId}"]`).classList.add('active');
+            document.getElementById(`${tabId}-form`).classList.add('active');
+        }
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                switchTab(tabId);
+            });
+        });
+        
+        tabSwitchers.forEach(switcher => {
+            switcher.addEventListener('click', (e) => {
+                e.preventDefault();
+                const tabId = switcher.getAttribute('data-tab');
+                switchTab(tabId);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer SPMB Kota Solok</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #0d904f, #147a33, #075e29, #003d19);
+            color: white;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+            padding: 0 20px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin: 20px 10px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info i {
+            margin-right: 15px;
+            width: 16px;
+            text-align: center;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            margin-right: 10px;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+        }
+        
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .quick-links li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        
+        .quick-links li a {
+            color: #eee;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 5px 0;
+        }
+        
+        .quick-links li a:hover {
+            color: white;
+            padding-left: 8px;
+            text-shadow: 0 0 5px rgba(255,255,255,0.3);
+        }
+        
+        .map {
+            width: 100%;
+            height: 200px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .partner-logos {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .partner-logo {
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 5px;
+            height: 50px;
+            width: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logo:hover {
+            transform: scale(1.05);
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .partner-logo img {
+            max-height: 40px;
+            max-width: 70px;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animation: glow 3s infinite alternate;
+        }
+        
+        @keyframes glow {
+            0% {
+                border-top-color: rgba(255, 255, 255, 0.1);
+            }
+            100% {
+                border-top-color: rgba(255, 255, 255, 0.3);
+            }
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo img {
+            width: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+        
+        .logo-text span {
+            display: block;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .footer-section {
+                min-width: 100%;
+                margin: 15px 0;
+            }
+            
+            .partner-logos {
+                justify-content: space-between;
+            }
+            
+            .partner-logo {
+                width: 70px;
+                height: 45px;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .footer {
+                padding: 30px 0;
+            }
+            
+            .footer-section h3 {
+                font-size: 1.1rem;
+                margin-bottom: 15px;
+            }
+            
+            .logo img {
+                width: 45px;
+            }
+            
+            .logo-text {
+                font-size: 1.2rem;
+            }
+            
+            .partner-logo {
+                width: 60px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <div class="logo">
+                <img src="/api/placeholder/60/60" alt="Logo SPMB Kota Solok">
+                <div class="logo-text">
+                    SPMB KOTA SOLOK
+                    <span>Seleksi Penerimaan Mahasiswa Baru</span>
+                </div>
+            </div>
+            <p>Portal resmi Seleksi Penerimaan Mahasiswa Baru (SPMB) Kota Solok. Menyediakan informasi lengkap tentang pendaftaran, proses seleksi, dan hasil seleksi penerimaan mahasiswa baru di Kota Solok.</p>
+            <div class="social-links">
+                <a href="#" title="Facebook"><i>FB</i></a>
+                <a href="#" title="Instagram"><i>IG</i></a>
+                <a href="#" title="Twitter"><i>TW</i></a>
+                <a href="#" title="YouTube"><i>YT</i></a>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Kontak Kami</h3>
+            <div class="contact-info">
+                <i>📍</i>
+                <p>Jl. Syech Ibrahim Musa No. 48, Kota Solok, Sumatera Barat</p>
+            </div>
+            <div class="contact-info">
+                <i>📞</i>
+                <p>+62 755 123456</p>
+            </div>
+            <div class="contact-info">
+                <i>✉️</i>
+                <p>info@spmb-kotasolok.ac.id</p>
+            </div>
+            <div class="contact-info">
+                <i>⌚</i>
+                <p>Senin - Jumat: 08.00 - 16.00 WIB</p>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Link Penting</h3>
+            <ul class="quick-links">
+                <li><a href="#">Pendaftaran Online</a></li>
+                <li><a href="#">Jadwal Seleksi</a></li>
+                <li><a href="#">Biaya Pendidikan</a></li>
+                <li><a href="#">Program Studi</a></li>
+                <li><a href="#">Pengumuman Kelulusan</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Lokasi Kami</h3>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.306273022047!2d100.64136698715819!3d-0.7794268999999888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4d19d0b6056c1%3A0xd3731981515e9d81!2sKota%20Solok%2C%20Sumatera%20Barat!5e0!3m2!1sid!2sid!4v1709622123470!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-container">
+        <h3>Institusi Pendukung</h3>
+        <div class="partner-logos">
+            <div class="partner-logo">
+                <img src="/api/placeholder/70/40" alt="Logo Pemkot Solok">
+            </div>
+            <div class="partner-logo">
+                <img src="/api/placeholder/70/40" alt="Logo Diknas">
+            </div>
+            <div class="partner-logo">
+                <img src="/api/placeholder/70/40" alt="Logo Universitas Solok">
+            </div>
+            <div class="partner-logo">
+                <img src="/api/placeholder/70/40" alt="Logo Politeknik Solok">
+            </div>
+            <div class="partner-logo">
+                <img src="/api/placeholder/70/40" alt="Logo STMIK Solok">
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-container footer-bottom">
+        <p>&copy; 2025 SPMB Kota Solok. Hak Cipta Dilindungi.</p>
+    </div>
+</footer>
+
+</body>
+</html>

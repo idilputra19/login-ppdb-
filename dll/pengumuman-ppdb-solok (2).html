@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengumuman Hasil PPDB Kota Solok 2025</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1b99e5;
+            --primary-dark: #1680c2;
+            --primary-light: #6bc8ff;
+            --gradient-start: #1b99e5;
+            --gradient-end: #0056b3;
+            --white: #ffffff;
+            --dark: #333333;
+            --gray: #f5f5f5;
+            --gray-dark: #e0e0e0;
+            --gray-text: #777777;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --shadow-dark: 0 5px 15px rgba(0, 0, 0, 0.2);
+            
+            /* Status colors */
+            --success: #4CAF50;
+            --pending: #FF9800;
+            --error: #F44336;
+            --info: #2196F3;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f9ff, #ecf4ff);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--white), #f8fbff);
+            box-shadow: var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--primary);
+        }
+        
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 10px;
+            line-height: 1.2;
+            box-shadow: 0 3px 8px rgba(27, 153, 229, 0.3);
+        }
+        
+        .brand-name {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Main Section */
+        .pengumuman-section {
+            padding: 30px 0;
+            flex-grow: 1;
+        }
+        
+        .announcement-banner {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            color: var(--white);
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .announcement-banner::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        .announcement-banner::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: -60px;
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+        }
+        
+        .announcement-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .announcement-subtitle {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .announcement-info {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .search-container {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .search-header {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .search-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .search-group {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .search-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--dark);
+        }
+        
+        .search-group input, .search-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray-dark);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+        
+        .search-group input:focus, .search-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(27, 153, 229, 0.2);
+        }
+        
+        .search-btn {
+            padding: 12px 25px;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 3px 8px rgba(27, 153, 229, 0.3);
+            align-self: flex-end;
+        }
+        
+        .search-btn:hover {
+            box-shadow: 0 5px 15px rgba(27, 153, 229, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .search-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'%3E%3C/path%3E%3C/svg%3E") center/cover no-repeat;
+        }
+        
+        .result-container {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .result-header {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .result-card {
+            border: 1px solid var(--gray-dark);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .result-top {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(to right, #f8f9fa, #e9f5ff);
+            border-bottom: 1px solid var(--gray-dark);
+        }
+        
+        .result-info {
+            flex: 1;
+        }
+        
+        .result-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .result-nisn {
+            font-size: 14px;
+            color: var(--gray-text);
+            margin-top: 3px;
+        }
+        
+        .result-status {
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 500;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .status-success {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+        
+        .status-error {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: var(--error);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+        }
+        
+        .status-pending {
+            background-color: rgba(255, 152, 0, 0.1);
+            color: var(--pending);
+            border: 1px solid rgba(255, 152, 0, 0.3);
+        }
+        
+        .result-details {
+            padding: 20px;
+        }
+        
+        .result-row {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .result-label {
+            width: 150px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .result-value {
+            flex: 1;
+            color: var(--gray-text);
+        }
+        
+        .result-actions {
+            padding: 15px 20px;
+            background-color: #f8f9fa;
+            border-top: 1px solid var(--gray-dark);
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            border: none;
+            box-shadow: 0 2px 5px rgba(27, 153, 229, 0.3);
+        }
+        
+        .btn-primary:hover {
+            box-shadow: 0 4px 8px rgba(27, 153, 229, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(27, 153, 229, 0.05);
+        }
+        
+        .result-steps {
+            margin-top: 20px;
+        }
+        
+        .step-title {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .steps {
+            display: flex;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 10px;
+            width: calc(100% - 20px);
+            height: 2px;
+            background-color: var(--gray-dark);
+            z-index: 1;
+        }
+        
+        .step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 0 5px;
+        }
+        
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            border: 2px solid var(--gray-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .step.current .step-circle {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 0 0 4px rgba(27, 153, 229, 0.2);
+        }
+        
+        .step.completed .step-circle {
+            background-color: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+        
+        .step-label {
+            font-size: 13px;
+            color: var(--gray-text);
+            transition: var(--transition);
+        }
+        
+        .step.current .step-label, .step.completed .step-label {
+            color: var(--dark);
+            font-weight: 500;
+        }
+        
+        .notification {
+            margin-bottom: 30px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .notification-success {
+            background-color: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid var(--success);
+        }
+        
+        .notification-info {
+            background-color: rgba(33, 150, 243, 0.1);
+            border-left: 4px solid var(--info);
+        }
+        
+        .notification-warning {
+            background-color: rgba(255, 152, 0, 0.1);
+            border-left: 4px solid var(--pending);
+        }
+        
+        .notification-error {
+            background-color: rgba(244, 67, 54, 0.1);
+            border-left: 4px solid var(--error);
+        }
+        
+        .notification-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+        
+        .notification-success .notification-icon {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%234CAF50'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'%3E%3C/path%3E%3C/svg%3E") center/cover no-repeat;
+        }
+        
+        .notification-info .notification-icon {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%232196F3'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'%3E%3C/path%3E%3C/svg%3E") center/cover no-repeat;
+        }
+        
+        .notification-warning .notification-icon {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23FF9800'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z'%3E%3C/path%3E%3C/svg%3E") center/cover no-repeat;
+        }
+        
+        .notification-error .notification-icon {
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23F44336'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z'%3E%3C/path%3E%3C/svg%3E") center/cover no-repeat;
+        }
+        
+        .notification-content {
+            flex: 1;
+        }
+        
+        .notification-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .notification-message {
+            font-size: 14px;
+        }
+        
+        .pengumuman-list {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .pengumuman-list-header {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .pengumuman-item {
+            padding: 15px;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+        
+        .pengumuman-item:last-child {
+            border-bottom: none;
+        }
+        
+        .pengumuman-date {
+            font-size: 12px;
+            color: var(--gray-text);
+            margin-bottom: 5px;
+        }
+        
+        .pengumuman-item-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+        
+        .pengumuman-item-content {
+            font-size: 14px;
+            color: var(--gray-text);
+        }
+        
+        .pengumuman-more {
+            font-size: 14px;
+            color: var(--primary);
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+            font-weight: 500;
+        }
+        
+        .pengumuman-more:hover {
+            text-decoration: underline;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 20px;
+        }
+        
+        .page-item {
+            width: 35px;
+            height: 35px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 14px;
+        }
+        
+        .page-item:hover {
+            background-color: rgba(27, 153, 229, 0.1);
+            color: var(--primary);
+        }
+        
+        .page-item.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray-text);
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .search-form {
+                flex-direction: column;
+            }
+            
+            .search-btn {
+                align-self: center;
+                width: 100%;
+            }
+            
+            .steps {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .steps::before {
+                display: none;
+            }
+            
+            .step {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                text-align: left;
+            }
+            
+            .step-circle {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="brand">
+                    <div class="brand-logo">SPMB<br>2025</div>
+                    <div class="brand-name">PPDB Kota Solok</div>
+                </a>
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Beranda</a>
+                    <a href="#" class="nav-link">Zonasi</a>
+                    <a href="#" class="nav-link">Jadwal</a>
+                    <a href="#" class="nav-link">Kontak</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="pengumuman-section">
+        <div class="container">
+            <div class="announcement-banner">
+                <h1 class="announcement-title">Pengumuman Hasil PPDB</h1>
+                <p class="announcement-subtitle">Penerimaan Peserta Didik Baru SMP Negeri Kota Solok</p>
+                <div class="announcement-info">Tahun Ajaran 2025/2026</div>
+            </div>
+            
+            <div class="search-container">
+                <h2 class="search-header">Cek Hasil Seleksi</h2>
+                <form class="search-form">
+                    <div class="search-group">
+                        <label for="search-name">Nama Lengkap</label>
+                        <input type="text" id="search-name" placeholder="Masukkan nama lengkap">
+                    </div>
+                    
+                    <div class="search-group">
+                        <label for="search-nisn">NISN</label>
+                        <input type="text" id="search-nisn" placeholder="Masukkan NISN">
+                    </div>
+                    
+                    <div class="search-group">
+                        <label for="search-school">Sekolah Pilihan</label>
+                        <select id="search-school">
+                            <option value="">Pilih Sekolah</option>
+                            <option value="smpn1">SMPN 1 Kota Solok</option>
+                            <option value="smpn2">SMPN 2 Kota Solok</option>
+                            <option value="smpn3">SMPN 3 Kota Solok</option>
+                            <option value="smpn4">SMPN 4 Kota Solok</option>
+                            <option value="smpn5">SMPN 5 Kota Solok</option>
+                            <option value="smpn6">SMPN 6 Kota Solok</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="search-btn">
+                        <span class="search-icon"></span>
+                        Cari Hasil
+                    </button>
+                </form>
+            </div>
+            
+            <div class="notification notification-info">
+                <div class="notification-icon"></div>
+                <div class="notification-content">
+                    <div class="notification-title">Pengumuman Hasil Seleksi</div>
+                    <div class="notification-message">Hasil seleksi PPDB Kota Solok tahun ajaran 2025/2026 telah diumumkan pada tanggal 25 April 2025. Silakan cek hasil seleksi dengan memasukkan data diri pada form di atas.</div>
+                </div>
+            </div>
+            
+            <div class="result-container">
+                <h2 class="result-header">Hasil Seleksi PPDB</h2>
+                
+                <!-- Hasil Jalur Zonasi -->
+                <div class="result-card">
+                    <div class="result-top">
+                        <div class="result-info">
+                            <div class="result-name">Ahmad Fadillah</div>
+                            <div class="result-nisn">NISN: 0095463728</div>
+                        </div>
+                        <div class="result-status status-success">DITERIMA</div>
+                    </div>
+                    
+                    <div class="result-details">
+                        <div class="result-row">
+                            <div class="result-label">Asal Sekolah</div>
+                            <div class="result-value">SD Negeri 01 Solok</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Jalur Pendaftaran</div>
+                            <div class="result-value">Zonasi (Domisili)</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Sekolah Tujuan</div>
+                            <div class="result-value">SMPN 1 Kota Solok</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Jarak ke Sekolah</div>
+                            <div class="result-value">0.8 km</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Peringkat</div>
+                            <div class="result-value">12 dari 144 (Kuota Jalur Zonasi)</div>
+                        </div>
+                        
+                        <div class="result-steps">
+                            <div class="step-title">Status Proses PPDB:</div>
+                            <div class="steps">
+                                <div class="step completed">
+                                    <div class="step-circle">1</div>
+                                    <div class="step-label">Pendaftaran</div>
+                                </div>
+                                
+                                <div class="step completed">
+                                    <div class="step-circle">2</div>
+                                    <div class="step-label">Verifikasi</div>
+                                </div>
+                                
+                                <div class="step completed">
+                                    <div class="step-circle">3</div>
+                                    <div class="step-label">Seleksi</div>
+                                </div>
+                                
+                                <div class="step current">
+                                    <div class="step-circle">4</div>
+                                    <div class="step-label">Daftar Ulang</div>
+                                </div>
+                                
+                                <div class="step">
+                                    <div class="step-circle">5</div>
+                                    <div class="step-label">Selesai</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-actions">
+                        <button class="action-btn btn-outline">Lihat Detail</button>
+                        <button class="action-btn btn-primary">Cetak Bukti</button>
+                    </div>
+                </div>
+                
+                <!-- Hasil Jalur Afirmasi -->
+                <div class="result-card">
+                    <div class="result-top">
+                        <div class="result-info">
+                            <div class="result-name">Siti Nurhaliza</div>
+                            <div class="result-nisn">NISN: 0094578291</div>
+                        </div>
+                        <div class="result-status status-success">DITERIMA</div>
+                    </div>
+                    
+                    <div class="result-details">
+                        <div class="result-row">
+                            <div class="result-label">Asal Sekolah</div>
+                            <div class="result-value">SD Negeri 05 Solok</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Jalur Pendaftaran</div>
+                            <div class="result-value">Afirmasi</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Sekolah Tujuan</div>
+                            <div class="result-value">SMPN 2 Kota Solok</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Jenis Bantuan</div>
+                            <div class="result-value">Kartu Indonesia Pintar (KIP)</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Peringkat</div>
+                            <div class="result-value">3 dari 34 (Kuota Jalur Afirmasi)</div>
+                        </div>
+                        
+                        <div class="result-steps">
+                            <div class="step-title">Status Proses PPDB:</div>
+                            <div class="steps">
+                                <div class="step completed">
+                                    <div class="step-circle">1</div>
+                                    <div class="step-label">Pendaftaran</div>
+                                </div>
+                                
+                                <div class="step completed">
+                                    <div class="step-circle">2</div>
+                                    <div class="step-label">Verifikasi</div>
+                                </div>
+                                
+                                <div class="step completed">
+                                    <div class="step-circle">3</div>
+                                    <div class="step-label">Seleksi</div>
+                                </div>
+                                
+                                <div class="step current">
+                                    <div class="step-circle">4</div>
+                                    <div class="step-label">Daftar Ulang</div>
+                                </div>
+                                
+                                <div class="step">
+                                    <div class="step-circle">5</div>
+                                    <div class="step-label">Selesai</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-actions">
+                        <button class="action-btn btn-outline">Lihat Detail</button>
+                        <button class="action-btn btn-primary">Cetak Bukti</button>
+                    </div>
+                </div>
+                
+                <!-- Hasil Jalur Prestasi -->
+                <div class="result-card">
+                    <div class="result-top">
+                        <div class="result-info">
+                            <div class="result-name">Budi Santoso</div>
+                            <div class="result-nisn">NISN: 0096547821</div>
+                        </div>
+                        <div class="result-status status-success">DITERIMA</div>
+                    </div>
+                    
+                    <div class="result-details">
+                        <div class="result-row">
+                            <div class="result-label">Asal Sekolah</div>
+                            <div class="result-value">SD Negeri 03 Solok</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Jalur Pendaftaran</div>
+                            <div class="result-value">Prestasi</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Sekolah Tujuan</div>
+                            <div class="result-value">SMPN 1 Kota Solok</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Prestasi</div>
+                            <div class="result-value">Juara 1 Olimpiade Matematika Tingkat Provinsi</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Poin Prestasi</div>
+                            <div class="result-value">150 poin (Peringkat 2 dari 36 kuota prestasi)</div>
+                        </div>
+                        
+                        <div class="result-steps">
+                            <div class="step-title">Status Proses PPDB:</div>
+                            <div class="steps">
+                                <div class="step completed">
+                                    <div class="step-circle">1</div>
+                                    <div class="step-label">Pendaftaran</div>
+                                </div>
+                                
+                                <div class="step completed">
+                                    <div class="step-circle">2</div>
+                                    <div class="step-label">Verifikasi</div>
+                                </div>
+                                
+                                <div class="step completed">
+                                    <div class="step-circle">3</div>
+                                    <div class="step-label">Seleksi</div>
+                                </div>
+                                
+                                <div class="step current">
+                                    <div class="step-circle">4</div>
+                                    <div class="step-label">Daftar Ulang</div>
+                                </div>
+                                
+                                <div class="step">
+                                    <div class="step-circle">5</div>
+                                    <div class="step-label">Selesai</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-actions">
+                        <button class="action-btn btn-outline">Lihat Detail</button>
+                        <button class="action-btn btn-primary">Cetak Bukti</button>
+                    </div>
+                </div>
+                
+                <!-- Hasil Jalur Pindah Tugas -->
+                <div class="result-card">
+                    <div class="result-top">
+                        <div class="result-info">
+                            <div class="result-name">Dina Pratiwi</div>
+                            <div class="result-nisn">NISN: 0095123789</div>
+                        </div>
+                        <div class="result-status status-success">DITERIMA</div>
+                    </div>
+                    
+                    <div class="result-details">
+                        <div class="result-row">
+                            <div class="result-label">Asal Sekolah</div>
+                            <div class="result-value">SD Negeri 04 Padang</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Jalur Pendaftaran</div>
+                            <div class="result-value">Pindah Tugas</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Sekolah Tujuan</div>
+                            <div class="result-value">SMPN 3 Kota Solok</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">Orangtua/Wali</div>
+                            <div class="result-value">Bpk. Hendra Pratama (ASN - Dinas Pendidikan)</div>
+                        </div>
+                        
+                        <div class="result-row">
+                            <div class="result-label">SK Pindah Tugas</div>
+                            <div class="result-value">KPTS.813/017/PEG/2025 (15 Januari 2025)</div>
+                        </div>
+                        
+                        <div class="result-steps">
+                            <div class="step-title">Status Proses PPDB:</div>
+                            <div class="steps">
+                                <div class="step completed">
+                                    <div class="step-circle">1</div>
+                                    <div class="step-label">Pendaftaran</div>
+                                </div>
+                                
+                                <div class="step completed">
+                                    <div class="step-circle">2</div>
+                                    <div class="step-label">Verifikasi</div>
+                                </div>
+                                
+                                <div class="step completed">
+                                    <div class="step-circle">3</div>
+                                    <div class="step-label">Seleksi</div>
+                                </div>
+                                
+                                <div class="step current">
+                                    <div class="step-circle">4</div>
+                                    <div class="step-label">Daftar Ulang</div>
+                                </div>
+                                
+                                <div class="step">
+                                    <div class="step-circle">5</div>
+                                    <div class="step-label">Selesai</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-actions">
+                        <button class="action-btn btn-outline">Lihat Detail</button>
+                        <button class="action-btn btn-primary">Cetak Bukti</button>
+                    </div>
+                </div>
+                
+                <div class="notification notification-success">
+                    <div class="notification-icon"></div>
+                    <div class="notification-content">
+                        <div class="notification-title">Informasi Daftar Ulang</div>
+                        <div class="notification-message">
+                            Bagi siswa yang dinyatakan diterima, wajib melakukan daftar ulang pada tanggal 27-30 April 2025 dengan membawa dokumen asli dan persyaratan yang telah ditentukan. Klik tombol "Cetak Bukti" untuk mencetak bukti penerimaan yang harus dibawa saat daftar ulang.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dinas Pendidikan Kota Solok. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // For demo purposes only
+        document.querySelector('.search-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('.result-container').style.display = 'block';
+            
+            // Scroll to results
+            document.querySelector('.result-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    </script>
+</body>
+</html>

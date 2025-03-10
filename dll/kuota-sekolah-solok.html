@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuota Penerimaan Siswa SMPN 1-6 Kota Solok</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #1b99e5;
+            --primary-dark: #1680c2;
+            --primary-light: #6bc8ff;
+            --gradient-start: #1b99e5;
+            --gradient-end: #0056b3;
+            --white: #ffffff;
+            --dark: #333333;
+            --gray: #f5f5f5;
+            --gray-dark: #e0e0e0;
+            --gray-text: #777777;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --shadow-dark: 0 5px 15px rgba(0, 0, 0, 0.2);
+            
+            /* Quota type colors */
+            --domisili: #4CAF50;
+            --afirmasi: #FF9800;
+            --prestasi: #E91E63;
+            --pindah: #673AB7;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f5f9ff, #ecf4ff);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--white), #f8fbff);
+            box-shadow: var(--shadow);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--primary);
+        }
+        
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 10px;
+            line-height: 1.2;
+            box-shadow: 0 3px 8px rgba(27, 153, 229, 0.3);
+        }
+        
+        .brand-name {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Main Section */
+        .quota-section {
+            padding: 30px 0;
+            flex-grow: 1;
+        }
+        
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--gray-text);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .quota-container {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .quota-header {
+            background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+            color: var(--white);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .quota-header h2 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .quota-header .school-year {
+            font-size: 14px;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+        
+        .quota-content {
+            padding: 20px;
+        }
+        
+        .quota-table-container {
+            overflow-x: auto;
+            margin-bottom: 30px;
+        }
+        
+        .quota-table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .quota-table th,
+        .quota-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+        
+        .quota-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: var(--dark);
+            white-space: nowrap;
+        }
+        
+        .quota-table tbody tr:hover {
+            background-color: rgba(27, 153, 229, 0.03);
+        }
+        
+        .quota-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .quota-table .school-name {
+            text-align: left;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .quota-category {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .category-card {
+            flex: 1;
+            min-width: 220px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+        }
+        
+        .domisili-card::before {
+            background-color: var(--domisili);
+        }
+        
+        .afirmasi-card::before {
+            background-color: var(--afirmasi);
+        }
+        
+        .prestasi-card::before {
+            background-color: var(--prestasi);
+        }
+        
+        .pindah-card::before {
+            background-color: var(--pindah);
+        }
+        
+        .category-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .category-description {
+            font-size: 14px;
+            color: var(--gray-text);
+            margin-bottom: 15px;
+        }
+        
+        .category-percentage {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .percentage-value {
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .percentage-label {
+            background-color: #f5f5f5;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .domisili-label {
+            color: var(--domisili);
+        }
+        
+        .afirmasi-label {
+            color: var(--afirmasi);
+        }
+        
+        .prestasi-label {
+            color: var(--prestasi);
+        }
+        
+        .pindah-label {
+            color: var(--pindah);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .progress {
+            height: 100%;
+            border-radius: 4px;
+        }
+        
+        .domisili-progress {
+            background-color: var(--domisili);
+            width: 60%;
+        }
+        
+        .afirmasi-progress {
+            background-color: var(--afirmasi);
+            width: 15%;
+        }
+        
+        .prestasi-progress {
+            background-color: var(--prestasi);
+            width: 15%;
+        }
+        
+        .pindah-progress {
+            background-color: var(--pindah);
+            width: 10%;
+        }
+        
+        .school-detail-card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .school-detail-header {
+            padding: 15px 20px;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .school-capacity {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .school-quota-details {
+            padding: 20px;
+        }
+        
+        .quota-pie-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .pie-chart-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        
+        .pie-chart {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--domisili) 0% 60%, 
+                var(--afirmasi) 60% 75%, 
+                var(--prestasi) 75% 90%, 
+                var(--pindah) 90% 100%
+            );
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pie-chart::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 130px;
+            height: 130px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .total-quota {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .total-quota-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .total-quota-label {
+            font-size: 12px;
+            color: var(--gray-text);
+        }
+        
+        .quota-distribution {
+            width: 100%;
+        }
+        
+        .quota-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gray-dark);
+        }
+        
+        .quota-item:last-child {
+            border-bottom: none;
+        }
+        
+        .quota-type {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quota-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .domisili-color {
+            background-color: var(--domisili);
+        }
+        
+        .afirmasi-color {
+            background-color: var(--afirmasi);
+        }
+        
+        .prestasi-color {
+            background-color: var(--prestasi);
+        }
+        
+        .pindah-color {
+            background-color: var(--pindah);
+        }
+        
+        .quota-name {
+            font-weight: 500;
+        }
+        
+        .quota-value {
+            font-weight: 600;
+        }
+        
+        .quota-breakdown {
+            margin-top: 20px;
+        }
+        
+        .breakdown-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--gray-dark);
+        }
+        
+        .breakdown-subtitle {
+            font-size: 14px;
+            font-weight: 500;
+            margin: 15px 0 10px;
+            color: var(--primary-dark);
+        }
+        
+        .breakdown-item {
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--gray-dark);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+        
+        .breakdown-label {
+            flex: 1;
+        }
+        
+        .breakdown-value {
+            font-weight: 600;
+            min-width: 80px;
+            text-align: right;
+        }
+        
+        .info-alert {
+            background-color: #e3f2fd;
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .info-alert p {
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        .info-alert strong {
+            color: var(--primary-dark);
+        }
+        
+        .quota-notes {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: var(--gray-text);
+            margin-top: 20px;
+        }
+        
+        .quota-notes ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        
+        .quota-notes li {
+            margin-bottom: 5px;
+        }
+        
+        /* School Tabs */
+        .school-tabs {
+            display: flex;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .school-tab {
+            padding: 15px 20px;
+            color: var(--dark);
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .school-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background-color: rgba(27, 153, 229, 0.05);
+        }
+        
+        .school-tab:hover:not(.active) {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+        
+        .school-tab-content {
+            display: none;
+        }
+        
+        .school-tab-content.active {
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--white);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray-text);
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .quota-category {
+                flex-direction: column;
+            }
+            
+            .school-tabs {
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="brand">
+                    <div class="brand-logo">SPMB<br>2025</div>
+                    <div class="brand-name">PPDB Kota Solok</div>
+                </a>
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Beranda</a>
+                    <a href="#" class="nav-link">Zonasi</a>
+                    <a href="#" class="nav-link">Bantuan</a>
+                    <a href="#" class="nav-link">Kontak</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="quota-section">
+        <div class="container">
+            <h1 class="section-title">Kuota Penerimaan Siswa Baru</h1>
+            <p class="section-subtitle">Pembagian kuota PPDB SMPN Kota Solok tahun ajaran 2025/2026</p>
+            
+            <div class="quota-container">
+                <div class="quota-header">
+                    <h2>Informasi Kuota PPDB SMPN Kota Solok</h2>
+                    <span class="school-year">Tahun Ajaran 2025/2026</span>
+                </div>
+                
+                <div class="quota-content">
+                    <div class="quota-category">
+                        <div class="category-card domisili-card">
+                            <h3 class="category-title">Jalur Domisili</h3>
+                            <p class="category-description">Diperuntukkan bagi calon peserta didik yang berdomisili sesuai dengan zonasi yang telah ditetapkan.</p>
+                            <div class="category-percentage">
+                                <span class="percentage-value">60%</span>
+                                <span class="percentage-label domisili-label">Kuota</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress domisili-progress"></div>
+                            </div>
+                            <p style="font-size: 13px;">Seleksi berdasarkan jarak tempat tinggal ke sekolah</p>
+                        </div>
+                        
+                        <div class="category-card afirmasi-card">
+                            <h3 class="category-title">Jalur Afirmasi</h3>
+                            <p class="category-description">Diperuntukkan bagi calon peserta didik dari keluarga ekonomi tidak mampu.</p>
+                            <div class="category-percentage">
+                                <span class="percentage-value">15%</span>
+                                <span class="percentage-label afirmasi-label">Kuota</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress afirmasi-progress"></div>
+                            </div>
+                            <p style="font-size: 13px;">Diprioritaskan bagi pemegang KIP, PKH, atau SKTM</p>
+                        </div>
+                        
+                        <div class="category-card prestasi-card">
+                            <h3 class="category-title">Jalur Prestasi</h3>
+                            <p class="category-description">Diperuntukkan bagi calon peserta didik yang memiliki prestasi akademik dan non-akademik.</p>
+                            <div class="category-percentage">
+                                <span class="percentage-value">15%</span>
+                                <span class="percentage-label prestasi-label">Kuota</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress prestasi-progress"></div>
+                            </div>
+                            <p style="font-size: 13px;">Prestasi akademik dan non-akademik tingkat kota/kabupaten, provinsi, nasional dan internasional</p>
+                        </div>
+                        
+                        <div class="category-card pindah-card">
+                            <h3 class="category-title">Jalur Pindah Tugas</h3>
+                            <p class="category-description">Diperuntukkan bagi calon peserta didik yang orangtuanya mengalami perpindahan tugas.</p>
+                            <div class="category-percentage">
+                                <span class="percentage-value">10%</span>
+                                <span class="percentage-label pindah-label">Kuota</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress pindah-progress"></div>
+                            </div>
+                            <p style="font-size: 13px;">Perpindahan tugas orangtua/wali (TNI, POLRI, ASN, atau pegawai BUMN)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quota-table-container">
+                        <table class="quota-table">
+                            <thead>
+                                <tr>
+                                    <th>Sekolah</th>
+                                    <th>Total Kuota</th>
+                                    <th>Jalur Domisili<br/><small>(60%)</small></th>
+                                    <th>Jalur Afirmasi<br/><small>(15%)</small></th>
+                                    <th>Jalur Prestasi<br/><small>(15%)</small></th>
+                                    <th>Jalur Pindah Tugas<br/><small>(10%)</small></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="school-name">SMPN 1 Kota Solok</td>
+                                    <td>240</td>
+                                    <td>144</td>
+                                    <td>36</td>
+                                    <td>36</td>
+                                    <td>24</td>
+                                </tr>
+                                <tr>
+                                    <td class="school-name">SMPN 2 Kota Solok</td>
+                                    <td>224</td>
+                                    <td>134</td>
+                                    <td>34</td>
+                                    <td>34</td>
+                                    <td>22</td>
+                                </tr>
+                                <tr>
+                                    <td class="school-name">SMPN 3 Kota Solok</td>
+                                    <td>192</td>
+                                    <td>115</td>
+                                    <td>29</td>
+                                    <td>29</td>
+                                    <td>19</td>
+                                </tr>
+                                <tr>
+                                    <td class="school-name">SMPN 4 Kota Solok</td>
+                                    <td>160</td>
+                                    <td>96</td>
+                                    <td>24</td>
+                                    <td>24</td>
+                                    <td>16</td>
+                                </tr>
+                                <tr>
+                                    <td class="school-name">SMPN 5 Kota Solok</td>
+                                    <td>128</td>
+                                    <td>77</td>
+                                    <td>19</td>
+                                    <td>19</td>
+                                    <td>13</td>
+                                </tr>
+                                <tr>
+                                    <td class="school-name">SMPN 6 Kota Solok</td>
+                                    <td>96</td>
+                                    <td>58</td>
+                                    <td>14</td>
+                                    <td>14</td>
+                                    <td>10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="info-alert">
+                        <p><strong>Catatan Penting:</strong> Jika kuota jalur afirmasi, prestasi, atau pindah tugas tidak terpenuhi, maka sisa kuota akan dialihkan ke jalur domisili.</p>
+                    </div>
+                    
+                    <div class="school-tabs">
+                        <div class="school-tab active" data-tab="smpn1">SMPN 1</div>
+                        <div class="school-tab" data-tab="smpn2">SMPN 2</div>
+                        <div class="school-tab" data-tab="smpn3">SMPN 3</div>
+                        <div class="school-tab" data-tab="smpn4">SMPN 4</div>
+                        <div class="school-tab" data-tab="smpn5">SMPN 5</div>
+                        <div class="school-tab" data-tab="smpn6">SMPN 6</div>
+                    </div>
+                    
+                    <div class="school-tab-content active" id="smpn1-content">
+                        <div class="school-detail-card">
+                            <div class="school-detail-header">
+                                <span>SMPN 1 Kota Solok</span>
+                                <span class="school-capacity">Kapasitas: 240 siswa</span>
+                            </div>
+                            <div class="school-quota-details">
+                                <div class="quota-pie-chart">
+                                    <div class="pie-chart-container">
+                                        <div class="pie-chart"></div>
+                                        <div class="total-quota">
+                                            <div class="total-quota-value">240</div>
+                                            <div class="total-quota-label">Total Kuota</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quota-distribution">
+                                        <div class="quota-item">
+                                            <div class="quota-type">
+                                                <span class="quota-color domisili-color"></span>
+                                                <span class="quota-name">Jalur Domisili (60%)</span>
+                                            </div>
+                                            <span class="quota-value">144 siswa</span>
+                                        </div>
+                                        <div class="quota-item">
+                                            <div class="quota-type">
+                                                <span class="quota-color afirmasi-color"></span>
+                                                <span class="quota-name">Jalur Afirmasi (15%)</span>
+                                            </div>
+                                            <span class="quota-value">36 siswa</span>
+                                        </div>
+                                        <div class="quota-item">
+                                            <div class="quota-type">
+                                                <span class="quota-color prestasi-color"></span>
+                                                <span class="quota-name">Jalur Prestasi (15%)</span>
+                                            </div>
+                                            <span class="quota-value">36 siswa</span>
+                                        </div>
+                                        <div class="quota-item">
+                                            <div class="quota-type">
+                                                <span class="quota-color pindah-color"></span>
+                                                <span class="quota-name">Jalur Pindah Tugas (10%)</span>
+                                            </div>
+                                            <span class="quota-value">24 siswa</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="quota-breakdown">
+                                    <h4 class="breakdown-title">Rincian Kuota Per Jalur Pendaftaran</h4>
+                                    
+                                    <h5 class="breakdown-subtitle">Jalur Domisili (144 siswa)</h5>
+                                    <div class="breakdown-item">
+                                        <span class="breakdown-label">Kelurahan Nan Balimo</span>
+                                        <span class="breakdown-value">60 siswa</span>
+                                    </div>
+                                    <div class="breakdown-item">
+                                        <span class="breakdown-label">Kelurahan Kampung Jawa</span>
+                                        <span class="breakdown-value">46 siswa</span>
+                                    </div>
+                                    <div class="breakdown-item">
+                                        <span class="breakdown-label">Kelurahan Tanjung Paku</span>
+                                        <span class="breakdown-value">38 siswa</span>
+                                    </div>
+                                    
+                                    <h5 class="breakdown-subtitle">Jalur Afirmasi (36 siswa)</h5>
+                                    <div class="breakdown-item">
+                                        <span class="breakdown-label">Pemegang KIP/KPS</span>
+                                        <span class="breakdown-value">18 siswa</span>
+                                
